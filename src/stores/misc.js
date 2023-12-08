@@ -1,5 +1,7 @@
+// @unocss-include
+
 import { defineStore } from "pinia";
 
-export const useMiscStore = defineStore('miscStore', () => {
-    return {}
-})
+export const useMiscStore = defineStore("miscStore", () => {
+  return {};
+});

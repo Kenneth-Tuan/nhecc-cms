@@ -1,19 +1,39 @@
-import { createApp } from 'vue'
-import { Quasar } from 'quasar'
-import '@quasar/extras/material-icons/material-icons.css'
-import 'quasar/src/css/index.sass'
-import { createPinia } from 'pinia'
-import App from './App.vue'
-import 'virtual:uno.css'
+import { createApp } from "vue";
+import { Quasar } from "quasar";
+import "@quasar/extras/material-icons/material-icons.css";
+import "quasar/src/css/index.sass";
+import { createPinia } from "pinia";
+import { createPersistedState } from "pinia-plugin-persistedstate";
+import App from "./App.vue";
+import "virtual:uno.css";
+import { i18n } from "@/locales";
+import router from "@/router";
 
-const myApp = createApp(App)
+// import { loadMockService } from './mocks/browser'
+
+if (
+  process.env.NODE_ENV === "development" &&
+  import.meta.env.VITE_APP_IS_MOCK === "TRUE"
+) {
+  // await loadMockService()
+}
+
+const myApp = createApp(App);
 
 myApp.use(Quasar, {
-  plugins: {}, 
-})
+  plugins: {},
+});
 
-const pinia = createPinia()
+const pinia = createPinia();
+pinia.use(
+  createPersistedState({
+    storage: sessionStorage,
+  })
+);
+myApp.use(pinia);
 
-myApp.use(pinia)
+myApp.use(router);
 
-myApp.mount('#app') 
+myApp.use(i18n);
+
+myApp.mount("#app");

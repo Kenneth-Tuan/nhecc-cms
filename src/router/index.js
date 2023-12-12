@@ -23,7 +23,7 @@ const routes = [
     path: "/:lang",
     children: [
       {
-        path: "fwbneutralmawb",
+        path: "nhecc",
         name: "landingPage",
         component: LandingPage,
         meta: {
@@ -66,7 +66,7 @@ router.beforeEach(async (to, from, next) => {
     console.error(
       `invalid lang in url, redirect to fallback locale:${fallbackLocale.value}`
     );
-    next(`${fallbackLocale.value}/fwbneutralmawb/`);
+    next(`${fallbackLocale.value}/nhecc/`);
   } else {
     updateLang(lang);
   }

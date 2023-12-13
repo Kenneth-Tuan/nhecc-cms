@@ -1,12 +1,12 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
-import { serviceTypeOptions, venues } from "@/constants/misc";
+import { serviceTypeOptions, venues, keys } from "@/constants/misc";
 import { ServiceStatusEnum } from "@/enums/AppEnum";
 import DatePicker from "./DatePicker.vue";
 import { useServiceStore } from "@/stores/service";
 
-const { service } = useServiceStore();
+const { service, initService } = useServiceStore();
 
 const step = ref(1);
 const done1 = ref(false);
@@ -19,6 +19,10 @@ function reset() {
   done3.value = false;
   step.value = 1;
 }
+
+onMounted(() => {
+  initService();
+});
 </script>
 
 <template>
@@ -38,12 +42,13 @@ function reset() {
         title="Select campaign settings"
         icon="settings"
         :done="done1"
+        class=""
       >
-        <div class="u-grid u-grid-cols-12 u-gap-16px">
+        <div class="u-grid u-grid-cols-12 u-gap-24px">
           <q-input
-            outlined
             v-model="service.name"
             label="service_name"
+            outlined
             dense
             class="u-col-span-6"
           />
@@ -84,26 +89,26 @@ function reset() {
             class="u-col-span-6"
           />
           <div
-            class="u-flex u-flex-row u-items-center u-justify-center u-col-span-6"
+            class="u-flex u-flex-row u-items-center u-justify-center u-flex-gap-x-16px u-col-span-6"
           >
             <div class="u-flex u-flex-col u-items-center">
-              <span>{{ "rehearsal_time_start" }}</span>
+              <span class="u-pb-8px">{{ "rehearsal_time_start" }}</span>
               <DatePicker v-model="service.rehearsalTime.start" />
             </div>
             <div class="u-flex u-flex-col u-items-center">
-              <span>{{ "rehearsal_time_end" }}</span>
+              <span class="u-pb-8px">{{ "rehearsal_time_end" }}</span>
               <DatePicker v-model="service.rehearsalTime.end" />
             </div>
           </div>
           <div
-            class="u-flex u-flex-row u-items-center u-justify-center u-col-span-6"
+            class="u-flex u-flex-row u-items-center u-justify-center u-flex-gap-x-16px u-col-span-6"
           >
             <div class="u-flex u-flex-col u-items-center">
-              <span>{{ "service_time_start" }}</span>
+              <span class="u-pb-8px">{{ "service_time_start" }}</span>
               <DatePicker v-model="service.serviceTime.start" />
             </div>
             <div class="u-flex u-flex-col u-items-center">
-              <span>{{ "service_time_end" }}</span>
+              <span class="u-pb-8px">{{ "service_time_end" }}</span>
               <DatePicker v-model="service.serviceTime.end" />
             </div>
           </div>
@@ -129,13 +134,51 @@ function reset() {
         icon="create_new_folder"
         :done="done2"
       >
-        <div v-for="song in service.songList" class="">
-          <p></p>
+        <div
+          v-for="(song, index) in service.songList"
+          class="u-flex u-flex-row u-items-center u-justify-start u-flex-nowrap u-gap-x-16px"
+        >
+          <span>{{ index + 1 }}</span>
+          <q-input
+            v-model="song.name"
+            type="text"
+            label="song_name"
+            outlined
+            dense
+          />
+          <q-select
+            v-model="song.key"
+            :options="keys"
+            type="text"
+            outlined=""
+            dense
+            hide-dropdown-icon
+          >
+            <template v-slot:append>
+              <span class="u-text-14px">
+                {{ "key" }}
+              </span>
+            </template>
+          </q-select>
+
+          <q-select
+            v-model="song.sheet"
+            :options="keys"
+            type="text"
+            outlined=""
+            dense
+          >
+          </q-select>
+
+          <q-btn flat dense color="primary" :ripple="false" no-caps>
+            <q-icon name="delete" />
+          </q-btn>
         </div>
 
         <q-btn flat dense color="primary" :ripple="false" no-caps>
+          <q-icon name="add_circle" class="u-mr-8px" />
           <span>
-            {{ "+ Add Song" }}
+            {{ "Add Song" }}
           </span>
         </q-btn>
 

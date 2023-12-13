@@ -1,10 +1,12 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref } from "vue";
 
 import { serviceTypeOptions, venues } from "@/constants/misc";
 import { ServiceStatusEnum } from "@/enums/AppEnum";
 import DatePicker from "./DatePicker.vue";
-import StepWrapper from "./StepWrapper.vue";
+import { useServiceStore } from "@/stores/service";
+
+const { service } = useServiceStore();
 
 const step = ref(1);
 const done1 = ref(false);
@@ -17,16 +19,6 @@ function reset() {
   done3.value = false;
   step.value = 1;
 }
-
-const service = reactive({
-  name: "",
-  type: "",
-  status: "",
-  location: "",
-  rehearsalTime: { start: "", end: "" },
-  serviceTime: { start: "", end: "" },
-  remarks: "",
-});
 </script>
 
 <template>
@@ -131,18 +123,37 @@ const service = reactive({
         </q-stepper-navigation>
       </q-step>
 
-      <StepWrapper
-        :step="2"
+      <q-step
+        :name="2"
+        title="Create Song List"
+        icon="create_new_folder"
         :done="done2"
-        @after-continue="
-          () => {
-            done2 = true;
-            step = 3;
-          }
-        "
-        @after-back="step = 1"
       >
-      </StepWrapper>
+        <div v-for="song in service.songList" class="">
+          <p></p>
+        </div>
+
+        <q-btn flat dense color="primary" :ripple="false" no-caps>
+          <span>
+            {{ "+ Add Song" }}
+          </span>
+        </q-btn>
+
+        <q-stepper-navigation align="right">
+          <q-btn flat @click="step = 1" color="primary" label="Back" />
+          <q-btn
+            @click="
+              () => {
+                done2 = true;
+                step = 3;
+              }
+            "
+            class="q-ml-sm"
+            color="primary"
+            label="Continue"
+          />
+        </q-stepper-navigation>
+      </q-step>
 
       <q-step :name="3" title="Create an ad" icon="add_comment" :done="done3">
         Try out different ad text to see what brings in the most customers, and
@@ -151,13 +162,12 @@ const service = reactive({
         running and how to resolve approval issues.
 
         <q-stepper-navigation>
-          <q-btn color="primary" @click="done3 = true" label="Finish" />
+          <q-btn flat @click="step = 2" color="primary" label="Back" />
           <q-btn
-            flat
-            @click="step = 2"
             color="primary"
-            label="Back"
             class="q-ml-sm"
+            @click="done3 = true"
+            label="Finish"
           />
         </q-stepper-navigation>
       </q-step>

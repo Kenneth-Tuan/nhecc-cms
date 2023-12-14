@@ -1,11 +1,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-import { serviceTypeOptions, venues, keys } from "@/constants/misc";
-import { ServiceStatusEnum } from "@/enums/AppEnum";
-import DatePicker from "./DatePicker.vue";
 import { useServiceStore } from "@/stores/service";
 import { storeToRefs } from "pinia";
+import SongsTable from "./SongsTable.vue";
+import ServiceForm from "./ServiceForm.vue";
 
 const { service, initService, addSong } = useServiceStore();
 const { isSongListAddable } = storeToRefs(useServiceStore());
@@ -46,75 +45,7 @@ onMounted(() => {
         :done="done1"
         class=""
       >
-        <div class="u-grid u-grid-cols-12 u-gap-24px">
-          <q-input
-            v-model="service.name"
-            label="service_name"
-            outlined
-            dense
-            class="u-col-span-6"
-          />
-          <q-select
-            outlined
-            v-model="service.type"
-            :options="serviceTypeOptions"
-            label="service_type"
-            dense
-            class="u-col-span-6"
-          />
-          <div class="u-col-span-6 u-flex u-flex-row u-justify-around">
-            <q-radio
-              v-model="service.status"
-              :val="ServiceStatusEnum.EDIT"
-              label="Edit"
-              color="orange"
-            />
-            <q-radio
-              v-model="service.status"
-              :val="ServiceStatusEnum.CLOSE"
-              label="Close"
-              color="red"
-            />
-            <q-radio
-              v-model="service.status"
-              :val="ServiceStatusEnum.SUBMIT"
-              label="Submit"
-              color="cyan"
-            />
-          </div>
-          <q-select
-            outlined
-            v-model="service.location"
-            :options="venues"
-            label="service_location"
-            dense
-            class="u-col-span-6"
-          />
-          <div
-            class="u-flex u-flex-row u-items-center u-justify-center u-flex-gap-x-16px u-col-span-6"
-          >
-            <div class="u-flex u-flex-col u-items-center">
-              <span class="u-pb-8px">{{ "rehearsal_time_start" }}</span>
-              <DatePicker v-model="service.rehearsalTime.start" />
-            </div>
-            <div class="u-flex u-flex-col u-items-center">
-              <span class="u-pb-8px">{{ "rehearsal_time_end" }}</span>
-              <DatePicker v-model="service.rehearsalTime.end" />
-            </div>
-          </div>
-          <div
-            class="u-flex u-flex-row u-items-center u-justify-center u-flex-gap-x-16px u-col-span-6"
-          >
-            <div class="u-flex u-flex-col u-items-center">
-              <span class="u-pb-8px">{{ "service_time_start" }}</span>
-              <DatePicker v-model="service.serviceTime.start" />
-            </div>
-            <div class="u-flex u-flex-col u-items-center">
-              <span class="u-pb-8px">{{ "service_time_end" }}</span>
-              <DatePicker v-model="service.serviceTime.end" />
-            </div>
-          </div>
-        </div>
+        <ServiceForm :service="service" />
 
         <q-stepper-navigation align="right">
           <q-btn
@@ -136,47 +67,7 @@ onMounted(() => {
         icon="create_new_folder"
         :done="done2"
       >
-        <div
-          v-for="(song, index) in service.songList"
-          class="u-flex u-flex-row u-items-center u-justify-start u-flex-nowrap u-gap-x-16px"
-        >
-          <span>{{ index + 1 }}</span>
-          <q-input
-            v-model="song.name"
-            type="text"
-            label="song_name"
-            outlined
-            dense
-          />
-          <q-select
-            v-model="song.key"
-            :options="keys"
-            type="text"
-            outlined=""
-            dense
-            hide-dropdown-icon
-          >
-            <template v-slot:append>
-              <span class="u-text-14px">
-                {{ "key" }}
-              </span>
-            </template>
-          </q-select>
-
-          <q-select
-            v-model="song.sheet"
-            :options="keys"
-            type="text"
-            outlined
-            dense
-            label="song_sheet_version"
-          >
-          </q-select>
-
-          <q-btn flat dense color="primary" :ripple="false" no-caps>
-            <q-icon name="delete" />
-          </q-btn>
-        </div>
+        <SongsTable :songs="service.songList" />
 
         <q-btn
           flat

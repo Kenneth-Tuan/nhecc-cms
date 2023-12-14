@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
 
 import { OriginalSongInfo } from "@/classes/Service";
 import { keys } from "@/constants/misc";
@@ -44,9 +44,13 @@ export const useServiceStore = defineStore("serviceStore", () => {
     service.songList.push(newSong);
   }
 
+  const isSongListAddable = computed(() => service.songList.length < MAX_SONGS);
+
   return {
     service,
+    isSongListAddable,
 
     initService,
+    addSong,
   };
 });

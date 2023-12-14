@@ -5,8 +5,10 @@ import { serviceTypeOptions, venues, keys } from "@/constants/misc";
 import { ServiceStatusEnum } from "@/enums/AppEnum";
 import DatePicker from "./DatePicker.vue";
 import { useServiceStore } from "@/stores/service";
+import { storeToRefs } from "pinia";
 
-const { service, initService } = useServiceStore();
+const { service, initService, addSong } = useServiceStore();
+const { isSongListAddable } = storeToRefs(useServiceStore());
 
 const step = ref(1);
 const done1 = ref(false);
@@ -165,8 +167,9 @@ onMounted(() => {
             v-model="song.sheet"
             :options="keys"
             type="text"
-            outlined=""
+            outlined
             dense
+            label="song_sheet_version"
           >
           </q-select>
 
@@ -175,7 +178,15 @@ onMounted(() => {
           </q-btn>
         </div>
 
-        <q-btn flat dense color="primary" :ripple="false" no-caps>
+        <q-btn
+          flat
+          dense
+          color="primary"
+          :ripple="false"
+          no-caps
+          :disable="!isSongListAddable"
+          @click="addSong()"
+        >
           <q-icon name="add_circle" class="u-mr-8px" />
           <span>
             {{ "Add Song" }}

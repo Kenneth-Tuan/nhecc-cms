@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue";
 
 import { useServiceStore } from "@/stores/service";
 import { storeToRefs } from "pinia";
-import SongsTable from "./SongsTable.vue";
+import HymnsTable from "./HymnsTable.vue";
 import ServiceForm from "./ServiceForm.vue";
 
 const { service, initService, addSong } = useServiceStore();
@@ -67,7 +67,7 @@ onMounted(() => {
         icon="create_new_folder"
         :done="done2"
       >
-        <SongsTable :songs="service.songList" />
+        <HymnsTable :hymns="service.hymnList" />
 
         <q-btn
           flat

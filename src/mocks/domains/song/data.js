@@ -1,5 +1,5 @@
-export const songsData = {
-  songs: [
+export const hymnsData = {
+  hymns: [
     {
       name: "Amazing Grace",
       type: "Hymn",
@@ -13,7 +13,7 @@ export const songsData = {
   ],
 };
 
-const dummySongsData = [
+const dummyHymnsData = [
   {
     hymn_id: "2907",
     hymn_status: "0",

@@ -2,7 +2,7 @@
 import { keys } from "@/constants/misc";
 
 const props = defineProps({
-  songs: {
+  hymns: {
     type: Array,
     required: true,
   },
@@ -11,14 +11,14 @@ const props = defineProps({
 
 <template>
   <div
-    v-for="(song, index) in songs"
+    v-for="(hymn, index) in hymns"
     class="u-flex u-flex-row u-items-center u-justify-start u-flex-nowrap u-gap-x-16px"
   >
     <span>{{ index + 1 }}</span>
-    <q-input v-model="song.name" type="text" label="song_name" outlined dense />
-    <!-- <q-select v-model="song.name" :options="options" label="Standard" filled /> -->
+    <q-input v-model="hymn.name" type="text" label="hymn_name" outlined dense />
+    <!-- <q-select v-model="hymn.name" :options="options" label="Standard" filled /> -->
     <q-select
-      v-model="song.key"
+      v-model="hymn.key"
       :options="keys"
       type="text"
       outlined=""
@@ -33,12 +33,12 @@ const props = defineProps({
     </q-select>
 
     <q-select
-      v-model="song.sheet"
+      v-model="hymn.sheet"
       :options="keys"
       type="text"
       outlined
       dense
-      label="song_sheet_version"
+      label="hymn_sheet_version"
     >
     </q-select>
 

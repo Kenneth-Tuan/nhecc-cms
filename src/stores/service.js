@@ -15,7 +15,7 @@ export const useServiceStore = defineStore("serviceStore", () => {
     rehearsalTime: { start: "", end: "" },
     serviceTime: { start: "", end: "" },
     remarks: "",
-    songList: [],
+    hymnList: [],
     members: [],
   });
 
@@ -29,22 +29,22 @@ export const useServiceStore = defineStore("serviceStore", () => {
     service.serviceTime.start = "";
     service.serviceTime.end = "";
     service.remarks = "";
-    service.songList = [];
+    service.hymnList = [];
     service.members = [];
 
     addSong();
   }
 
-  function addSong(songInfo) {
-    if (service.songList.length >= MAX_SONGS) return;
+  function addSong(hymnInfo) {
+    if (service.hymnList.length >= MAX_SONGS) return;
     const newSong = new OriginalSongInfo({
-      ...songInfo,
+      ...hymnInfo,
       key: keys[Math.floor(Math.random() * 12)],
     });
-    service.songList.push(newSong);
+    service.hymnList.push(newSong);
   }
 
-  const isSongListAddable = computed(() => service.songList.length < MAX_SONGS);
+  const isSongListAddable = computed(() => service.hymnList.length < MAX_SONGS);
 
   return {
     service,

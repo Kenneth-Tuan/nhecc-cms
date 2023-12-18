@@ -1,0 +1,101 @@
+$EzyBooking-green: #189068;
+$EzyBooking-green-1: #1a8242;
+$EzyBooking-green-2: #10b981;
+
+$EzyBooking-dark-green: #146c4f;
+$EzyBooking-dark-green-1: #0f523c;
+
+$EzyBooking-bright-green: #90be20;
+
+$EzyBooking-light-green: #9ad2c0;
+$EzyBooking-light-green-1: rgba(26, 130, 66, 0.05);
+$EzyBooking-light-green-2: #e8f4f0;
+$EzyBooking-light-green-3: #f6f7f7;
+$EzyBooking-light-green-4: #f3f9f7;
+
+$EzyBooking-blue-gray: #64748b;
+$EzyBooking-light-blue: #e9f1f3;
+$EzyBooking-sky-blue: #00a3c5;
+$EzyBooking-sky-blue-hover: #00cdf7;
+
+$EzyBooking-light-gray: #dde0e0;
+$EzyBooking-light-gray-1: #eef0f0;
+$EzyBooking-light-gray-2: #999999;
+$EzyBooking-light-gray-3: #94a3b8;
+$EzyBooking-light-gray-4: #a09e9e;
+$EzyBooking-light-gray-5: #ededed;
+
+$EzyBooking-gray: #808b8b;
+$EzyBooking-gray-1: #d9d9d9;
+
+$EzyBooking-dark-gray: #6f7c7c;
+$EzyBooking-dark-gray-1: #556565;
+
+$EzyBooking-red: #f40e0e;
+$EzyBooking-red-1: rgba(214, 72, 48, 0.05);
+$EzyBooking-red-2: #d64830;
+
+$EzyBooking-alert-yellow: #eebd0e;
+
+$EzyBooking-disable: #d5d5d9;
+
+$EzyBooking-black: #414042;
+$EzyBooking-black-2: #0f172a;
+
+$EzyBooking-white-1: #fcf8f9;
+
+$EzyBooking: (
+  green: #189068,
+  green-1: #1a8242,
+  green-2: #10b981,
+
+  dark-green: #146c4f,
+  dark-green-1: #0f523c,
+
+  bright-green: #90be20,
+
+  light-green: #9ad2c0,
+  light-green-1: rgba(26, 130, 66, 0.05),
+  light-green-2: #e8f4f0,
+  light-green-3: #f6f7f7,
+  light-green-4: #f3f9f7,
+
+  blue-gray: #64748b,
+  light-blue: #e9f1f3,
+  sky-blue: #00a3c5,
+  sky-blue-hover: #00cdf7,
+
+  light-gray: #dde0e0,
+  light-gray-1: #eef0f0,
+  light-gray-2: #999999,
+  light-gray-3: #94a3b8,
+  light-gray-4: #a09e9e,
+  light-gray-5: #ededed,
+
+  gray: #808b8b,
+  gray-1: #d9d9d9,
+
+  dark-gray: #6f7c7c,
+  dark-gray-1: #556565,
+
+  red: #f40e0e,
+  red-1: rgba(214, 72, 48, 0.05),
+  red-2: #d64830,
+
+  alert-yellow: #eebd0e,
+
+  disable: #d5d5d9,
+
+  black: #414042,
+  black-2: #0f172a,
+
+  white-1: #fcf8f9,
+);
+
+@each $prop, $abbrev in (background-color: bg, color: text) {
+  @each $key, $val in $EzyBooking {
+    .#{$abbrev}-EzyBooking-#{"" + $key} {
+      #{$prop}: $val;
+    }
+  }
+}

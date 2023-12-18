@@ -6,8 +6,8 @@ import { storeToRefs } from "pinia";
 import HymnsTable from "./HymnsTable.vue";
 import ServiceForm from "./ServiceForm.vue";
 
-const { service, initService, addSong } = useServiceStore();
-const { isSongListAddable } = storeToRefs(useServiceStore());
+const { service, initService, addHymn } = useServiceStore();
+const { isHymnListAddable } = storeToRefs(useServiceStore());
 
 const step = ref(1);
 const done1 = ref(false);
@@ -70,13 +70,14 @@ onMounted(() => {
         <HymnsTable :hymns="service.hymnList" />
 
         <q-btn
-          flat
-          dense
+          @click="addHymn()"
           color="primary"
           :ripple="false"
+          :disable="!isHymnListAddable"
+          class="u-mt-8px"
           no-caps
-          :disable="!isSongListAddable"
-          @click="addSong()"
+          dense
+          flat
         >
           <q-icon name="add_circle" class="u-mr-8px" />
           <span>

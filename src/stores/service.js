@@ -32,10 +32,10 @@ export const useServiceStore = defineStore("serviceStore", () => {
     service.hymnList = [];
     service.members = [];
 
-    addSong();
+    addHymn();
   }
 
-  function addSong(hymnInfo) {
+  function addHymn(hymnInfo) {
     if (service.hymnList.length >= MAX_SONGS) return;
     const newSong = new OriginalSongInfo({
       ...hymnInfo,
@@ -44,13 +44,34 @@ export const useServiceStore = defineStore("serviceStore", () => {
     service.hymnList.push(newSong);
   }
 
-  const isSongListAddable = computed(() => service.hymnList.length < MAX_SONGS);
+  function updateHymn(updateValue, columnName, hymnId) {
+    service.hymnList = service.hymnList.map((hymn) => {
+      if (hymn.id === hymnId) {
+        return { ...hymn, [columnName]: updateValue };
+      }
+      return hymn;
+    });
+  }
+
+  function removeHymn(hymnId) {
+    if (service.hymnList.length <= 1) {
+      service.hymnList = [];
+      addHymn();
+    }
+    service.hymnList = service.hymnList.filter((hymn) => hymn.id !== hymnId);
+  }
+
+  const isHymnListAddable = computed(() => service.hymnList.length < MAX_SONGS);
+  const isHymnListRemoveable = computed(() => service.hymnList.length > 1);
 
   return {
     service,
-    isSongListAddable,
+    isHymnListAddable,
+    isHymnListRemoveable,
 
     initService,
-    addSong,
+    addHymn,
+    updateHymn,
+    removeHymn,
   };
 });

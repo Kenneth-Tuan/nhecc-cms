@@ -5,9 +5,10 @@ import { useServiceStore } from "@/stores/service";
 import { storeToRefs } from "pinia";
 import HymnsTable from "./HymnsTable.vue";
 import ServiceForm from "./ServiceForm.vue";
+import BandMembers from "./BandMembers.vue";
 
-const { service, initService, addHymn } = useServiceStore();
-const { isHymnListAddable } = storeToRefs(useServiceStore());
+const { service, initService, addHymn, addMember } = useServiceStore();
+const { isHymnListAddable, isMembersAddable } = storeToRefs(useServiceStore());
 
 const step = ref(1);
 const done1 = ref(false);
@@ -81,7 +82,7 @@ onMounted(() => {
         >
           <q-icon name="add_circle" class="u-mr-8px" />
           <span>
-            {{ "Add Song" }}
+            {{ "add_hymn" }}
           </span>
         </q-btn>
 
@@ -102,10 +103,23 @@ onMounted(() => {
       </q-step>
 
       <q-step :name="3" title="Create an ad" icon="add_comment" :done="done3">
-        Try out different ad text to see what brings in the most customers, and
-        learn how to enhance your ads using features like ad extensions. If you
-        run into any problems with your ads, find out how to tell if they're
-        running and how to resolve approval issues.
+        <BandMembers :members="service.members" />
+
+        <q-btn
+          @click="addMember()"
+          color="primary"
+          :ripple="false"
+          :disable="!isMembersAddable"
+          class="u-mt-8px"
+          no-caps
+          dense
+          flat
+        >
+          <q-icon name="add_circle" class="u-mr-8px" />
+          <span>
+            {{ "add_member" }}
+          </span>
+        </q-btn>
 
         <q-stepper-navigation>
           <q-btn flat @click="step = 2" color="primary" label="Back" />

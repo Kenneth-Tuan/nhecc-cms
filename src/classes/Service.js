@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-export class OriginalSongInfo {
+export class OriginalHymnInfo {
   constructor({
     id = uuidv4(),
     name = "",
@@ -13,5 +13,21 @@ export class OriginalSongInfo {
     this.key = key;
     this.sheet = sheet;
     this.urlRef = urlRef;
+  }
+}
+
+export class OriginalBandMember {
+  constructor({
+    id = uuidv4(),
+    name = "",
+    instrument = "",
+    part = "",
+    remarks = "",
+  } = {}) {
+    this.id = id;
+    this.name = name;
+    this.instrument = instrument;
+    this.part = part;
+    this.remarks = remarks;
   }
 }

@@ -1,0 +1,342 @@
+{
+  "views": {
+    "searchFlight": {
+      "directFlightsOnly": "僅顯示直航",
+      "departureTimeFrom": "出發時間 (從)",
+      "searchFlights": "搜尋航班",
+      "weightType": "重量類別",
+      "chooseTemplate": "選擇範本"
+    },
+    "selectFlight": {
+      "holdOnMsg": "請稍等，我們正為您查詢 { carriersCode } 的航班結果",
+      "editDetailReminder": {
+        "content": "您將被重定向到搜索航班頁面進行編輯"
+      },
+      "details": "詳細資料",
+      "editDetails": "編輯",
+      "search": "搜尋",
+      "noResult": {
+        "title": "沒有相關結果",
+        "content1": "調整搜索條件或前往 ",
+        "content2": "搜尋航班",
+        "content3": "重新搜索",
+        "content4": "調整搜索條件，",
+        "content5": "篩選條件或 "
+      },
+      "sortBy": "排序方式",
+      "departureTime": "出發時間",
+      "arrivalTime": "抵達時間",
+      "allFlight": "所有航班",
+      "directFlight": "直航",
+      "ratesMessage": "顯示的價格為全含運費 (例如附加費用及其他費用，如適用)"
+    },
+    "completeBooking": {
+      "title": "貨物資料",
+      "disclaimer": {
+        "content1": "以上價格僅作參考用途。",
+        "content2": "最終訂艙價格可能會因應航空公司的艙位供應、實際貨物量、附加費等其他因素而有所調整。",
+        "title": "免責聲明"
+      },
+      "rateChangedReminder": {
+        "title": "價格變更",
+        "content1": "價格無效。 請聯繫航空公司以獲取最新價格。",
+        "content2": "總額為 { totalCosts }",
+        "okButton1": "前往訂艙",
+        "okButton2": "前往提交",
+        "cancelButton": "返回比較航班報價"
+      },
+      "flightNotAvailableReminder": {
+        "content2": "所選航班不適用於特殊處理代碼",
+        "title": "航班不適用",
+        "content1": "所選航班不適用，請選擇其他航班",
+        "okButton": "移除代碼並提交",
+        "cancelButton": "返回比較航班報價"
+      },
+      "timeoutNotify": "訂艙時限已過。您將被重定向查看航空公司的最新航班及價格以再次訂艙",
+      "departOn": "出發日期",
+      "edit": "編輯",
+      "termsAndConditions": {
+        "title": "條款及細則",
+        "content": "已閱讀並接受免責聲明"
+      },
+      "submit": "提交",
+      "share": "分享",
+      "print": "列印",
+      "timerTitle": "提交訂艙以保證艙位"
+    },
+    "bookingResult": {
+      "awbNumber": "空運提單號碼",
+      "status": {
+        "acknowledgement": "Acknowledgement",
+        "error": "請更正錯誤和重新提交訂艙",
+        "confirmed": "訂艙確認",
+        "waitlist": "Waitlist",
+        "cancel": "Cancellation noted",
+        "notOperate": "Flight Does not operate",
+        "submitted": "訂艙已提交"
+      },
+      "message": {
+        "spaceRequestReceived": "Space Request Received",
+        "off": "Offload",
+        "againstAllotment": "Space Confirm against allotment",
+        "notConfirm": "Not Confirm",
+        "notExist": "Flight does not exist",
+        "underWaitlist": "Under Waitlist",
+        "sales": "Sales Request Received",
+        "cancel": "Cancellation noted",
+        "confirmed": "Space Confirmed",
+        "inProgress": "Request in progress"
+      },
+      "title": "訂艙結果",
+      "viewDetails": "查看詳情",
+      "notApplicable": "N.A.",
+      "serviceLevel": "服務級別",
+      "allBookingLog": "所有訂艙記錄",
+      "newBooking": "重新搜索"
+    }
+  },
+  "components": {
+    "flightDetails": {
+      "full": "滿額",
+      "title": "Flight Details",
+      "essentialFirst": "一級 (PR1)",
+      "essentialPlus": "優越 (PR2)",
+      "essential": "標準 (PR3)",
+      "standard": "標準",
+      "duration": "運貨時間"
+    },
+    "rateDetails": {
+      "allInFreightCost": "全含運費",
+      "airFreightCost": "空運費用",
+      "surcharge": "附加費用",
+      "securityCharge": "附加費用",
+      "noRateDescription1": "目前無法提供價格概要，請聯繫{ airlineFullName }獲取價格資訊。 ",
+      "noRateDescription2": "你仍可在沒有價格的情況下，繼續提交訂艙。",
+      "truckCost": "卡車費用",
+      "otherCharge": "其他費用"
+    },
+    "booking": {
+      "airwayBill": "空運提單",
+      "invalidAirwayBill": "空運提單號碼無效",
+      "airwayBillIsUsed": "此空運提單已被使用，請輸入新的提單號碼",
+      "requireWarehouseCode": "請選擇倉庫代碼",
+      "ASPReminder": "為了遵守香港特別行政區的法律規定，您需要在 “貨品種類”欄內標註電子煙的數量。",
+      "title": "訂艙",
+      "requiredFields": "必填",
+      "invalidGoodsDescription": "貨品種類無效",
+      "invalidSHC": "特殊處理代碼無效"
+    },
+    "shipmentDetail": {
+      "perItem": "每件",
+      "title": "貨物資料",
+      "weightType": "重量類別",
+      "nonStackable": "不可堆叠",
+      "addPieceGroup": "增加件組"
+    },
+    "settings": {
+      "serviceMode": "運貨模式",
+      "oneStop": "1中轉站",
+      "twoStops": "2中轉站",
+      "moreStops": "3或更多中轉站",
+      "title": "篩選條件",
+      "resetAll": "全部重設",
+      "reset": "重設",
+      "time": "時間",
+      "departureTime": "出發時間",
+      "arrivalTime": "抵達時間",
+      "airlines": "航空公司",
+      "allServiceMode": "所有",
+      "airAndVessel": "空運及海運",
+      "airAndTruck": "空運及陸運",
+      "airOnly": "空運",
+      "currency": "幣別",
+      "any": "不限",
+      "departureTimeTooltip": "請回到搜尋航班頁面調整出發時間(從)"
+    },
+    "SQRequirements": {
+      "adjustDimensionReminder": "請輸入正確尺寸以符合總體積或在搜索航班頁面上更新貨物資料。",
+      "volumeDoesNotMatch": "尺寸體積與總體積不符",
+      "requiredRemarks": "尺寸體積必須符合搜索航班頁面的總體積",
+      "SQToolTip": "尺寸為{ airlineFullName }的訂艙要求"
+    },
+    "cargoDetails": {
+      "title": "貨物資料"
+    },
+    "rateSummary": {
+      "title": "價格概要"
+    },
+    "shipmentDetailItem": {
+      "invalidPiece": "件數無效",
+      "invalidLength": "長度無效",
+      "invalidWidth": "寬度無效",
+      "invalidHeight": "高度無效",
+      "invalidVolume": "體積無效",
+      "invalidWeight": "重量無效",
+      "copy": "複製",
+      "clear": "清除"
+    },
+    "flightCard": {
+      "flightDetails": "Flight Details",
+      "allotment": "艙位",
+      "instantConfirmation": "艙位即時確認",
+      "details": "詳情",
+      "contactSales": "聯繫航空公司獲取價格",
+      "up": "起",
+      "numOfService": "{service} 選項可訂",
+      "exceedLimit": "超過限制",
+      "general": "一般貨物",
+      "book": "訂艙"
+    },
+    "flightCardDetail": {
+      "stopover": "中轉站"
+    },
+    "departureDateSelector": {
+      "invalidDepartureDate": "出發日期無效",
+      "daysShort": {
+        "monday": "一",
+        "tuesday": "二",
+        "wednesday": "三",
+        "thursday": "四",
+        "friday": "五",
+        "saturday": "六",
+        "sunday": "日"
+      }
+    },
+    "airportInfo": {
+      "nearbyTooltip": "包含附近機場的航班結果"
+    },
+    "timer": {
+      "min": "分",
+      "sec": "秒"
+    },
+    "flightRouteSelector": {
+      "airport": "機場",
+      "searchHistory": "搜尋紀錄",
+      "routing": "航線",
+      "cargoDetails": "貨物資料",
+      "directFlight": "直航",
+      "notMatch": "沒有相關結果",
+      "notFoundHistory": "沒有搜尋紀錄",
+      "keyInAirportCode": "請輸入機場代碼進行搜尋"
+    },
+    "templateDialog": {
+      "title": "範本",
+      "templateName": "範本名稱",
+      "routing": "航線",
+      "cargoDetails": "貨物資料",
+      "directFlight": "直航",
+      "noRecord": "沒有範本紀錄"
+    },
+    "saveTemplateDialog": {
+      "title": "保存為範本",
+      "apiResponse": {
+        "success": "範本已保存",
+        "duplicatedName": "您已經使用過該範本名稱",
+        "overTemplateLimit": "您的範本數量已達到上限"
+      }
+    },
+    "airwayBillStockLookupDialog": {
+      "title": "空運提單庫存查詢",
+      "airwayBill": "空運提單",
+      "noRecord": "沒有記錄",
+      "numberOfResults": "{number} 搜尋結果",
+      "stockLookup": "庫存查找"
+    }
+  },
+  "errorMessage": {
+    "accessDenied": "您沒有訪問該功能的權限。請聯繫管理員尋求幫助。",
+    "type": {
+      "nullDefaultCurrency": "未找到默認貨幣",
+      "unauthorizedAccess": "訪問被拒絕",
+      "sessionExpired": "登入時間過長",
+      "unavailableService": "系統錯誤"
+    },
+    "general": "請稍後片刻，然後再嘗試。",
+    "reLogin": "請重新登入(刷新頁面)，然後再嘗試。",
+    "booking": "您的訂艙訊息已提交。有關最新訂艙狀態，請到訂艙記錄查看。",
+    "flightUnavailable": "你所查詢的航班資料暫時未能提供，請稍後再試。",
+    "sessionExpired": "你的操作已逾時，請登出然後重新登入EzyCargo",
+    "redirectedToLogin": "您將被重定向到登入頁面",
+    "currency": "請聯繫公司管理員更新公司資料中的貨幣。 系統會以{currency}顯示訂艙價格。"
+  },
+  "common": {
+    "totalPiece": "總件數",
+    "warehouseCode": "倉庫代碼",
+    "generalCargo": "一般貨物",
+    "duration": "貨運時間",
+    "transitPort": "中轉站",
+    "volumeRoundedOff": "根據所選的航空公司標準，體積四捨五入到小數點後兩位。",
+    "piece": "數量",
+    "pc": "件",
+    "dimensions": "尺寸",
+    "totalDimensions": "總尺寸",
+    "weight": "重量",
+    "totalWeight": "總重量",
+    "volume": "體積",
+    "totalVolume": "總體積",
+    "goodsDescription": "貨品種類",
+    "specialHandlingCode": "特殊處理代碼",
+    "remarks": "備註",
+    "total": "總計",
+    "notAvailable": "無法提供",
+    "airlineRequirements": "航空公司要求",
+    "dimensionalVolume": "尺寸體積",
+    "commodity": "商品",
+    "consolidation": "Consolidation",
+    "generalCargoNormalHandling": "General Cargo - Normal Handling",
+    "stackable": "可堆疊",
+    "chargeableWeight": "計費重量",
+    "from": "由",
+    "to": "到",
+    "departureDate": "出發日期",
+    "origin": "出發地",
+    "destination": "目的地",
+    "length": "長度",
+    "lengthShort": "長",
+    "width": "寬度",
+    "widthShort": "寬",
+    "height": "高度",
+    "heightShort": "高",
+    "cm": "厘米",
+    "in": "寸",
+    "mc": "MC",
+    "cf": "CF",
+    "kg": "公斤",
+    "lb": "磅",
+    "invalidOrigin": "出發地無效",
+    "invalidDestination": "目的地無效",
+    "flight": "航班",
+    "airAndTruck": "空運及陸運",
+    "airOnly": "空運",
+    "air": "空運",
+    "truck": "陸運",
+    "vessel": "海運",
+    "invalidCommodity": "Invalid Commodity",
+    "ok": "OK",
+    "cancel": "取消",
+    "save": "保存",
+    "lengthOfDigits": "{length} 數字",
+    "lengthOfCharacters": "{length} 字元",
+    "maxLengthOfCharacters": "最長. { length }字元",
+    "pleaseSelect": "請選擇",
+    "pleaseWait": "請稍候片刻...",
+    "cathaySolution": "Cathay Solution",
+    "airlines": {
+      "CX": "國泰航空",
+      "JL": "日本航空",
+      "LX": "瑞士國際航空",
+      "NH": "全日本空輸",
+      "SQ": "新加坡航空",
+      "BR": "長榮航空",
+      "CI": "中華航空",
+      "JX": "星宇航空",
+      "UO": "香港快運航空"
+    },
+    "currencies": {
+      "TWD": "新臺幣",
+      "JPY": "日圓",
+      "INR": "盧比",
+      "HKD": "港元"
+    }
+  }
+}

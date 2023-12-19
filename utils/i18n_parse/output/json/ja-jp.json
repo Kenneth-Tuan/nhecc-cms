@@ -1,0 +1,342 @@
+{
+  "views": {
+    "searchFlight": {
+      "directFlightsOnly": "直行便",
+      "departureTimeFrom": "出発時刻（出発地から）",
+      "searchFlights": "フライト検索",
+      "weightType": "重量タイプ",
+      "chooseTemplate": "テンプレートを選択"
+    },
+    "selectFlight": {
+      "holdOnMsg": "少々お待ちください { carriersCode }フライトの結果",
+      "editDetailReminder": {
+        "content": "フライトの検索ページに移動し、編集を行います。"
+      },
+      "details": "詳細",
+      "editDetails": "詳細を編集",
+      "search": "検索",
+      "noResult": {
+        "title": "結果が見つかりませんでした",
+        "content1": "検索条件を調整するか、次のページへ進んでください",
+        "content2": "フライト検索",
+        "content3": "新しい検索を開始する",
+        "content4": "検索条件を調整する",
+        "content5": "設定を調整するか、次のページへ進んでください"
+      },
+      "sortBy": "並び替え",
+      "departureTime": "出発時間",
+      "arrivalTime": "到着時間",
+      "allFlight": "全てのフライト",
+      "directFlight": "直行便",
+      "ratesMessage": "下記の運賃はすべて含まれています（例：サーチャージやその他の運賃が適用される場合）"
+    },
+    "completeBooking": {
+      "title": "貨物詳細",
+      "disclaimer": {
+        "content1": "表示運賃はあくまでも参考です。",
+        "content2": "最終的な運賃は航空会社の供給状況、実際の貨物サイズ、サーチャージなどの他の要因によって変更される場合があります",
+        "title": "免責事項"
+      },
+      "rateChangedReminder": {
+        "title": "運賃が変更されました",
+        "content1": "運賃は無効です。最新の運賃については航空会社にお問い合わせください",
+        "content2": "総額は { totalCosts } に変更されました",
+        "okButton1": "予約に進む",
+        "okButton2": "送信に進む",
+        "cancelButton": "フライト比較に戻る"
+      },
+      "flightNotAvailableReminder": {
+        "content2": "選択されたフライトはスペシャルハンドリングコードではご利用いただけません。",
+        "title": "フライトは利用できません",
+        "content1": "選択されたフライトは利用できません。別のフライトを選択してください",
+        "okButton": "コードを削除して送信",
+        "cancelButton": "フライト比較に戻る"
+      },
+      "timeoutNotify": "予約セッションの有効期限が切れました。最新の航空会社のオファーを確認して再度ご予約ください。",
+      "departOn": "出発日",
+      "edit": "編集",
+      "termsAndConditions": {
+        "title": "利用規約",
+        "content": "免責事項を読み、承諾しました"
+      },
+      "submit": "送信",
+      "share": "共有",
+      "print": "印刷",
+      "timerTitle": "スペースを確保するために予約を送信する"
+    },
+    "bookingResult": {
+      "awbNumber": "AWB番号",
+      "status": {
+        "acknowledgement": "ご挨拶",
+        "error": "エラーを修正して予約を再提出してください",
+        "confirmed": "確認済み",
+        "waitlist": "待機リスト",
+        "cancel": "キャンセルが明記されています",
+        "notOperate": "飛行機が運航しない",
+        "submitted": "予約が送信されました"
+      },
+      "message": {
+        "spaceRequestReceived": "スペース依頼の受付",
+        "off": "オフロード",
+        "againstAllotment": "割り当てに対するスペースの確認",
+        "notConfirm": "未確認",
+        "notExist": "フライトが存在しません",
+        "underWaitlist": "待機リストの下",
+        "sales": "販売リクエストを受信しました",
+        "cancel": "キャンセルが明記されています",
+        "confirmed": "確認済みスペース",
+        "inProgress": "リクエストが進行中"
+      },
+      "title": "予約結果",
+      "viewDetails": "詳細を表示",
+      "notApplicable": "N.A.",
+      "serviceLevel": "サービスレベル",
+      "allBookingLog": "全ての予約ログ",
+      "newBooking": "新しい予約"
+    }
+  },
+  "components": {
+    "flightDetails": {
+      "full": "満杯、完売",
+      "title": "Flight Details",
+      "essentialFirst": "First(PR1)",
+      "essentialPlus": "Essential Plus(PR2)",
+      "essential": "Essential (PR3)",
+      "standard": "Standard",
+      "duration": "運送時間"
+    },
+    "rateDetails": {
+      "allInFreightCost": "All-in 運賃",
+      "airFreightCost": "航空運賃",
+      "surcharge": "サーチャージ",
+      "securityCharge": "セキュリティチャージ",
+      "noRateDescription1": "現在はその運賃を提供できません。運賃情報については、{ airlineFullName  }にお問い合わせください。",
+      "noRateDescription2": "運賃なしで予約の送信を続けることができます。",
+      "truckCost": "トラック運賃",
+      "otherCharge": "その他の運賃"
+    },
+    "booking": {
+      "airwayBill": "AWB",
+      "invalidAirwayBill": "AWB番号が無効です",
+      "airwayBillIsUsed": "このAWB番号は既に使用されています。別のAWB番号を使用してください",
+      "requireWarehouseCode": "上屋コードを選択してください",
+      "ASPReminder": "HKSARの法的要件を遵守するため、この商品説明欄にASPの数量を記載する必要があります。",
+      "title": "予約",
+      "requiredFields": "必須項目",
+      "invalidGoodsDescription": "品名が無効です",
+      "invalidSHC": "Invalid Special Handling Code"
+    },
+    "shipmentDetail": {
+      "perItem": "品目毎",
+      "title": "輸送詳細",
+      "weightType": "重量タイプ",
+      "nonStackable": "段積み禁止",
+      "addPieceGroup": "アイテムグループを追加"
+    },
+    "settings": {
+      "serviceMode": "サービスモード",
+      "oneStop": "ワンストップ",
+      "twoStops": "1回の経由",
+      "moreStops": "2回以上の経由",
+      "title": "設定",
+      "resetAll": "全てリセット",
+      "reset": "リセット",
+      "time": "時間",
+      "departureTime": "出発時間",
+      "arrivalTime": "到着時間",
+      "airlines": "航空会社",
+      "allServiceMode": "すべて",
+      "airAndVessel": "空輸と海運",
+      "airAndTruck": "空輸とトラック",
+      "airOnly": "空輸のみ",
+      "currency": "通貨",
+      "any": "任意",
+      "departureTimeTooltip": "出発時間を調整するために、検索フライトに戻ってください"
+    },
+    "SQRequirements": {
+      "adjustDimensionReminder": "総体積に合わせて寸法を調整するか、検索フライトページで貨物詳細を更新してください",
+      "volumeDoesNotMatch": "寸法の体積が総体積と一致しません",
+      "requiredRemarks": "寸法の体積は、検索フライトページの輸送詳細と一致する必要があります",
+      "SQToolTip": "{ airlineFullName } の予約には寸法が必要です"
+    },
+    "cargoDetails": {
+      "title": "Cargo Details"
+    },
+    "rateSummary": {
+      "title": "運賃の概要"
+    },
+    "shipmentDetailItem": {
+      "invalidPiece": "個数が無効です",
+      "invalidLength": "長さ無効です",
+      "invalidWidth": "幅無効です",
+      "invalidHeight": "高さ無効です",
+      "invalidVolume": "ボリュームが無効です",
+      "invalidWeight": "重量が無効です",
+      "copy": "コピー",
+      "clear": "クリア"
+    },
+    "flightCard": {
+      "flightDetails": "Flight Details",
+      "allotment": "割り当て",
+      "instantConfirmation": "即時確認",
+      "details": "詳細",
+      "contactSales": "運賃の確認のために航空会社に連絡してください",
+      "up": "以上",
+      "numOfService": "{service} のオプションが利用可能です",
+      "exceedLimit": "限界を超える",
+      "general": "一般貨物",
+      "book": "予約"
+    },
+    "flightCardDetail": {
+      "stopover": "途中停留"
+    },
+    "departureDateSelector": {
+      "invalidDepartureDate": "出発日が無効です",
+      "daysShort": {
+        "monday": "月",
+        "tuesday": "火",
+        "wednesday": "水",
+        "thursday": "木",
+        "friday": "金",
+        "saturday": "土",
+        "sunday": "日"
+      }
+    },
+    "airportInfo": {
+      "nearbyTooltip": "近隣空港の結果を含める"
+    },
+    "timer": {
+      "min": "分",
+      "sec": "秒"
+    },
+    "flightRouteSelector": {
+      "airport": "空港",
+      "searchHistory": "検索履歴",
+      "routing": "航路",
+      "cargoDetails": "貨物詳細",
+      "directFlight": "直行便",
+      "notMatch": "該当する結果はありません",
+      "notFoundHistory": "検索履歴がありません",
+      "keyInAirportCode": "検索するために空港コードを入力してください"
+    },
+    "templateDialog": {
+      "title": "テンプレート",
+      "templateName": "テンプレート名",
+      "routing": "航路",
+      "cargoDetails": "貨物詳細",
+      "directFlight": "直行便",
+      "noRecord": "テンプレートの記録がありません"
+    },
+    "saveTemplateDialog": {
+      "title": "テンプレートとして保存",
+      "apiResponse": {
+        "success": "テンプレートは保存されます",
+        "duplicatedName": "このテンプレート名は既に使用されています",
+        "overTemplateLimit": "テンプレートの最大数に達しました"
+      }
+    },
+    "airwayBillStockLookupDialog": {
+      "title": "エアウエイビルストック確認",
+      "airwayBill": "エアウエイビル",
+      "noRecord": "記録なし",
+      "numberOfResults": "{number} 件の結果",
+      "stockLookup": "ストック照会"
+    }
+  },
+  "errorMessage": {
+    "accessDenied": "この機能にアクセスする権限がありません。管理者へご連絡ください。",
+    "type": {
+      "nullDefaultCurrency": "既定の通貨が見つかりません",
+      "unauthorizedAccess": "アクセスが拒否されました",
+      "sessionExpired": "セッションが期限切れです",
+      "unavailableService": "利用できないサービスです"
+    },
+    "general": "しばらくお待ちいただき、もう一度お試しください",
+    "reLogin": "再度ログイン（更新）してもう一度お試しください",
+    "booking": "予約リクエストが送信されました。最新の予約状況については、予約ログでご確認ください",
+    "flightUnavailable": "ご希望のフライトは現在利用できません。もう一度お試しください。",
+    "sessionExpired": "セッションが切れました。EzyCargoからログアウトし、再度ログインしてください。",
+    "redirectedToLogin": "ログインページにリダイレクトされます。",
+    "currency": "会社の管理者に連絡して、会社プロフィールの通貨を更新してください。システムは{currency}に基づいて運賃を表示します。"
+  },
+  "common": {
+    "totalPiece": "総個数",
+    "warehouseCode": "上屋コード",
+    "generalCargo": "一般貨物",
+    "duration": "期間",
+    "transitPort": "経由空港",
+    "volumeRoundedOff": "選択した航空会社の基準により、体積は小数点以下2桁に四捨五入されます。",
+    "piece": "個数",
+    "pc": "個",
+    "dimensions": "サイズ",
+    "totalDimensions": "総寸法",
+    "weight": "重量",
+    "totalWeight": "総重量",
+    "volume": "ボリューム",
+    "totalVolume": "総体積",
+    "goodsDescription": "品名",
+    "specialHandlingCode": "スペシャルハンドリングコード",
+    "remarks": "備考",
+    "total": "合計",
+    "notAvailable": "利用できません",
+    "airlineRequirements": "航空会社の要件",
+    "dimensionalVolume": "寸法の体積",
+    "commodity": "商品",
+    "consolidation": "Consolidation",
+    "generalCargoNormalHandling": "General Cargo - Normal Handling",
+    "stackable": "積み重ね可能",
+    "chargeableWeight": "課金重量",
+    "from": "出発地",
+    "to": "到着地",
+    "departureDate": "出発日",
+    "origin": "出発地",
+    "destination": "到着地",
+    "length": "長さ",
+    "lengthShort": "L",
+    "width": "幅",
+    "widthShort": "W",
+    "height": "高さ",
+    "heightShort": "H",
+    "cm": "CM",
+    "in": "IN",
+    "mc": "MC",
+    "cf": "CF",
+    "kg": "KG",
+    "lb": "LB",
+    "invalidOrigin": "出発地が無効です",
+    "invalidDestination": "到着地が無効です",
+    "flight": "フライト",
+    "airAndTruck": "Air and Truck",
+    "airOnly": "Air Only",
+    "air": "空輸",
+    "truck": "トラック",
+    "vessel": "海運",
+    "invalidCommodity": "Invalid Commodity",
+    "ok": "OK",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "lengthOfDigits": "{length}桁",
+    "lengthOfCharacters": "{length}文字",
+    "maxLengthOfCharacters": "最大{ length }文字",
+    "pleaseSelect": "選択してください",
+    "pleaseWait": "お待ちください...",
+    "cathaySolution": "Cathay Solution",
+    "airlines": {
+      "CX": "Cathay Pacific Airways",
+      "JL": "Japan Airlines",
+      "LX": "Swiss International Air Lines",
+      "NH": "All Nippon Airways",
+      "SQ": "Singapore Airlines",
+      "BR": "EVA Airways Corporation",
+      "CI": "China Airlines",
+      "JX": "Starlux",
+      "UO": "Hong Kong Express Airways"
+    },
+    "currencies": {
+      "TWD": "TWD",
+      "JPY": "JPY",
+      "INR": "INR",
+      "HKD": "HKD"
+    }
+  }
+}

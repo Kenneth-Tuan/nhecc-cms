@@ -1,0 +1,342 @@
+{
+  "views": {
+    "searchFlight": {
+      "directFlightsOnly": "Direct Flights",
+      "departureTimeFrom": "Departure Time From",
+      "searchFlights": "Flüge suchen",
+      "weightType": "Weight Type",
+      "chooseTemplate": "Vorlage auswählen"
+    },
+    "selectFlight": {
+      "holdOnMsg": "Hold on, we are requesting { carriersCode } flight results for you.",
+      "editDetailReminder": {
+        "content": "You will be redirected to Search Flight page to edit."
+      },
+      "details": "Details",
+      "editDetails": "Edit Details",
+      "search": "Suche",
+      "noResult": {
+        "title": "No Result Matched",
+        "content1": "Adjust your search criteria or go to ",
+        "content2": "Flug suchen",
+        "content3": "to start a new search",
+        "content4": "Adjust your search criteria, ",
+        "content5": "your settings or go to "
+      },
+      "sortBy": "Sort By",
+      "departureTime": "Departure Time",
+      "arrivalTime": "Arrival Time",
+      "allFlight": "All Flight",
+      "directFlight": "Direct Flight",
+      "ratesMessage": "Rates shown below are all-in (e.g. surcharge and other charge, if applicable)"
+    },
+    "completeBooking": {
+      "title": "Shipment Details",
+      "disclaimer": {
+        "content1": "Rates shown are for reference only.",
+        "content2": "The final rates are subject to the airlines availability, actual shipment size, surcharges and other factors.",
+        "title": "Disclaimer"
+      },
+      "rateChangedReminder": {
+        "title": "Rate Changed",
+        "content1": "The rate is no longer valid. Please contact airline to get the updated rate.",
+        "content2": "Total rate change to { totalCosts }",
+        "okButton1": "Proceed to Booking",
+        "okButton2": "Proceed to Submit",
+        "cancelButton": "Back to Compare Flights"
+      },
+      "flightNotAvailableReminder": {
+        "content2": "The selected flight is not available for SHC.",
+        "title": "Flight Not Available",
+        "content1": "The selected flight is not available, please select another flight.",
+        "okButton": "Remove code and submit",
+        "cancelButton": "Back to Compare Flights"
+      },
+      "timeoutNotify": "The booking session has timed out.  You are now redirected to see the latest airline offers and book again.",
+      "departOn": "depart on",
+      "edit": "bearbeiten",
+      "termsAndConditions": {
+        "title": "Terms and Conditions",
+        "content": "I have read and accepted the disclaimer"
+      },
+      "submit": "Anfragen",
+      "share": "Share",
+      "print": "Print",
+      "timerTitle": "Submit booking to secure the space"
+    },
+    "bookingResult": {
+      "awbNumber": "AWB-Nummer",
+      "status": {
+        "acknowledgement": "Acknowledgement",
+        "error": "Please correct the error and resubmit the booking",
+        "confirmed": "Confirmed",
+        "waitlist": "Waitlist",
+        "cancel": "Cancellation noted",
+        "notOperate": "Flight Does not operate",
+        "submitted": "Buchung angefragt"
+      },
+      "message": {
+        "spaceRequestReceived": "Space Request Received",
+        "off": "Offload",
+        "againstAllotment": "Space Confirm against allotment",
+        "notConfirm": "Not Confirm",
+        "notExist": "Flight does not exist",
+        "underWaitlist": "Under Waitlist",
+        "sales": "Sales Request Received",
+        "cancel": "Cancellation noted",
+        "confirmed": "Space Confirmed",
+        "inProgress": "Request in progress"
+      },
+      "title": "Booking Result",
+      "viewDetails": "View Details",
+      "notApplicable": "N.A.",
+      "serviceLevel": "Service Level",
+      "allBookingLog": "Alle Buchungsprotokolle",
+      "newBooking": "New Booking"
+    }
+  },
+  "components": {
+    "flightDetails": {
+      "full": "full",
+      "title": "Flight Details",
+      "essentialFirst": "First(PR1)",
+      "essentialPlus": "Essential Plus(PR2)",
+      "essential": "Essential (PR3)",
+      "standard": "Standard",
+      "duration": "Duration"
+    },
+    "rateDetails": {
+      "allInFreightCost": "All-in Freight Rate",
+      "airFreightCost": "Air Freight Rate",
+      "surcharge": "Surcharge",
+      "securityCharge": "Security Charge",
+      "noRateDescription1": "The rate is currently not available, please contact { airlineFullName } for the rate information. ",
+      "noRateDescription2": "You can continue to submit the booking without rate.",
+      "truckCost": "Truck Cost",
+      "otherCharge": "Other Charge"
+    },
+    "booking": {
+      "airwayBill": "AWB",
+      "invalidAirwayBill": "Ungültige AWB-Nummer",
+      "airwayBillIsUsed": "Air Waybill is already used. Please use another Air Waybill",
+      "requireWarehouseCode": "Please select warehouse code",
+      "ASPReminder": "In order to comply with HKSAR legal requirements, you are required to indicate the ASP quantity in this Goods Descriptions field.",
+      "title": "Buchung",
+      "requiredFields": "Benötigte Felder",
+      "invalidGoodsDescription": "Ungültige Warenbeschreibung",
+      "invalidSHC": "Invalid Special Handling Code"
+    },
+    "shipmentDetail": {
+      "perItem": "Per Item",
+      "title": "Shipment Details",
+      "weightType": "Weight Type",
+      "nonStackable": "nicht stapelbar",
+      "addPieceGroup": "Add piece group"
+    },
+    "settings": {
+      "serviceMode": "Service Mode",
+      "oneStop": "1 stop",
+      "twoStops": "2 stops",
+      "moreStops": "3 or more stops",
+      "title": "Settings",
+      "resetAll": "Reset All",
+      "reset": "Reset",
+      "time": "Zeit",
+      "departureTime": "Departure Time",
+      "arrivalTime": "Arrival Time",
+      "airlines": "Airlines",
+      "allServiceMode": "All",
+      "airAndVessel": "Air and Vessel",
+      "airAndTruck": "Air and Truck",
+      "airOnly": "Air Only",
+      "currency": "Currency",
+      "any": "Any",
+      "departureTimeTooltip": "Please go back to Search Flight to adjust the departure time from"
+    },
+    "SQRequirements": {
+      "adjustDimensionReminder": "Please adjust the dimension to match the total volume or update the shipment details on Search Flight page.",
+      "volumeDoesNotMatch": "Dimensional volume does not match the total volume",
+      "requiredRemarks": "Dimensional volume must match with Shipment Detail on Search Flight page",
+      "SQToolTip": "Dimension is required for { airlineFullName } booking"
+    },
+    "cargoDetails": {
+      "title": "Cargo Details"
+    },
+    "rateSummary": {
+      "title": "Rate Summary"
+    },
+    "shipmentDetailItem": {
+      "invalidPiece": "Ungültige Stückzahl",
+      "invalidLength": "Invalid Length",
+      "invalidWidth": "Invalid Width",
+      "invalidHeight": "Invalid Height",
+      "invalidVolume": "Invalid Volume",
+      "invalidWeight": "Ungültiges Gewicht",
+      "copy": "Copy",
+      "clear": "Clear"
+    },
+    "flightCard": {
+      "flightDetails": "Flight Details",
+      "allotment": "Allotment",
+      "instantConfirmation": "Instant Confirmation",
+      "details": "Details",
+      "contactSales": "Contact Airline for Rate",
+      "up": "up",
+      "numOfService": "{service} rates available",
+      "exceedLimit": "Exceed limit",
+      "general": "General",
+      "book": "Buchungen"
+    },
+    "flightCardDetail": {
+      "stopover": "Stopover"
+    },
+    "departureDateSelector": {
+      "invalidDepartureDate": "Invalid Departure Date",
+      "daysShort": {
+        "monday": "M",
+        "tuesday": "T",
+        "wednesday": "W",
+        "thursday": "T",
+        "friday": "F",
+        "saturday": "S",
+        "sunday": "S"
+      }
+    },
+    "airportInfo": {
+      "nearbyTooltip": "Include nearby airport results"
+    },
+    "timer": {
+      "min": "min",
+      "sec": "sec"
+    },
+    "flightRouteSelector": {
+      "airport": "Airport",
+      "searchHistory": "Search History",
+      "routing": "Routing",
+      "cargoDetails": "Cargo Details",
+      "directFlight": "Direct Flight",
+      "notMatch": "No result matched",
+      "notFoundHistory": "No search history",
+      "keyInAirportCode": "Please key in airport code for search"
+    },
+    "templateDialog": {
+      "title": "Template",
+      "templateName": "Template Name",
+      "routing": "Routing",
+      "cargoDetails": "Cargo Details",
+      "directFlight": "Direct Flight",
+      "noRecord": "No template record"
+    },
+    "saveTemplateDialog": {
+      "title": "als Vorlage speichern",
+      "apiResponse": {
+        "success": "Vorlage ist gespeichert.",
+        "duplicatedName": "You have already used this template name",
+        "overTemplateLimit": "You have reached the maximum number of templates"
+      }
+    },
+    "airwayBillStockLookupDialog": {
+      "title": "AWB-Nummernkreis Überblick",
+      "airwayBill": "Air Waybill",
+      "noRecord": "No Record Found",
+      "numberOfResults": "{number} results",
+      "stockLookup": "AWB-Nummernkreis Überblick"
+    }
+  },
+  "errorMessage": {
+    "accessDenied": "You do not have permission to access this function. Please contact your administrator for assistance.",
+    "type": {
+      "nullDefaultCurrency": "System Error",
+      "unauthorizedAccess": "Access Denied",
+      "sessionExpired": "Session Expire",
+      "unavailableService": "Unavailable Service"
+    },
+    "general": "Please wait for a while and try again.",
+    "reLogin": "Please re-login (refresh) and try again.",
+    "booking": "Your booking request has been submitted. For latest booking status, please view in Booking Log.",
+    "flightUnavailable": "The flight you are looking for is currently unavailable, please try again.",
+    "sessionExpired": "Your session expired. Please logout and re-login EzyCargo again",
+    "redirectedToLogin": "You will be redirected to login page.",
+    "currency": "Please contact the company admin to update the currency in company profile. System will display rate based on {currency}."
+  },
+  "common": {
+    "totalPiece": "Total Piece",
+    "warehouseCode": "Código de almacén",
+    "generalCargo": "General Cargo",
+    "duration": "Duration",
+    "transitPort": "Transit port(s)",
+    "volumeRoundedOff": "Volume is rounded off to 2 decimal places due to the selected airline standard.",
+    "piece": "Stückzahl",
+    "pc": "Stück",
+    "dimensions": "Abmessungen",
+    "totalDimensions": "Total Dimensions",
+    "weight": "Gewicht",
+    "totalWeight": "Total Weight",
+    "volume": "Volumen",
+    "totalVolume": "Total Volume",
+    "goodsDescription": "Warenbeschreibung",
+    "specialHandlingCode": "Special Handling Code",
+    "remarks": "Bemerkungen",
+    "total": "Gesamt",
+    "notAvailable": "Not available",
+    "airlineRequirements": "Airline Requirement",
+    "dimensionalVolume": "Dimensional volume",
+    "commodity": "Commodity",
+    "consolidation": "Consolidation",
+    "generalCargoNormalHandling": "General Cargo - Normal Handling",
+    "stackable": "Stackable",
+    "chargeableWeight": "Chargeable Weight",
+    "from": "Von",
+    "to": "nach",
+    "departureDate": "Departure Date",
+    "origin": "Abflughafen",
+    "destination": "Zielflughafen",
+    "length": "Länge",
+    "lengthShort": "L",
+    "width": "Breite",
+    "widthShort": "W",
+    "height": "Höhe",
+    "heightShort": "H",
+    "cm": "CM",
+    "in": "IN",
+    "mc": "MC",
+    "cf": "CF",
+    "kg": "KG",
+    "lb": "LB",
+    "invalidOrigin": "Ungültiger Abflughafen",
+    "invalidDestination": "Ungültiger Zielflughafen",
+    "flight": "Flüge",
+    "airAndTruck": "Air and Truck",
+    "airOnly": "Air Only",
+    "air": "Air",
+    "truck": "Truck",
+    "vessel": "Vessel",
+    "invalidCommodity": "Invalid Commodity",
+    "ok": "OK",
+    "cancel": "Stornieren",
+    "save": "speichern",
+    "lengthOfDigits": "{length} digits",
+    "lengthOfCharacters": "{length} characters",
+    "maxLengthOfCharacters": "Max. { length } characters",
+    "pleaseSelect": "Please Select",
+    "pleaseWait": "Please wait...",
+    "cathaySolution": "Cathay Solution",
+    "airlines": {
+      "CX": "Cathay Pacific Airways",
+      "JL": "Japan Airlines",
+      "LX": "Swiss International Air Lines",
+      "NH": "All Nippon Airways",
+      "SQ": "Singapore Airlines",
+      "BR": "EVA Airways Corporation",
+      "CI": "China Airlines",
+      "JX": "Starlux",
+      "UO": "Hong Kong Express Airways"
+    },
+    "currencies": {
+      "TWD": "TWD",
+      "JPY": "JPY",
+      "INR": "INR",
+      "HKD": "HKD"
+    }
+  }
+}

@@ -17,17 +17,10 @@ export class OriginalHymnInfo {
 }
 
 export class OriginalBandMember {
-  constructor({
-    id = uuidv4(),
-    name = "",
-    instrument = "",
-    part = "",
-    remarks = "",
-  } = {}) {
+  constructor({ id = uuidv4(), name = "", role = "", remarks = "" } = {}) {
     this.id = id;
     this.name = name;
-    this.instrument = instrument;
-    this.part = part;
+    this.role = role;
     this.remarks = remarks;
   }
 }

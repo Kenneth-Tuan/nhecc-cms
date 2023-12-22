@@ -1,7 +1,10 @@
 <script setup>
+import { ref } from "vue";
 import { storeToRefs } from "pinia";
 
 import { useServiceStore } from "@/stores/service";
+import { dummyMembers } from "@/mocks/domains/members/data";
+import { ROLES_OF_BAND } from "@/constants/serviceConst";
 
 const serviceStore = useServiceStore();
 const { updateMemberInfo, removeMember } = serviceStore;
@@ -14,12 +17,44 @@ const props = defineProps({
   },
 });
 
+const adaptedMembers = dummyMembers.map((member) => {
+  return {
+    label: member.Chinese_name,
+    value: member.Chinese_name,
+    band: member.band_name,
+    dsp: member.English_name,
+  };
+});
+
+const memrberList = ref(adaptedMembers);
+
 function onInput(updateValue, columnName, id) {
   updateMemberInfo(updateValue, columnName, id);
 }
 
 function onUpdate(updateValue, columnName, id) {
   updateMemberInfo(updateValue, columnName, id);
+}
+
+function filterFn(val, update, abort) {
+  // if (val.length < 2) {
+  //   abort();
+  //   return;
+  // }
+  update(() => {
+    const needle = val.toLocaleLowerCase();
+    memrberList.value = adaptedMembers.filter(
+      (member) => member.value.toLocaleLowerCase().indexOf(needle) > -1
+    );
+  });
+}
+
+function highlightFiltered(memberName, inputValue) {
+  const label = memberName.replaceAll(
+    inputValue?.toUpperCase(),
+    `<span class='u-fw-700! u-c-blue!' >${inputValue?.toUpperCase()}</span>`
+  );
+  return label;
 }
 </script>
 
@@ -36,13 +71,13 @@ function onUpdate(updateValue, columnName, id) {
         <span>{{ index + 1 }}</span>
 
         <q-select
-          :model-value="hymn.name"
+          :model-value="member.name"
           @input-value="(val) => onInput(val, 'name', member.id)"
           @update:model-value="(val) => onUpdate(val, 'name', member.id)"
-          :options="hymnlist"
+          :options="memrberList"
           input-debounce="0"
           @filter="filterFn"
-          label="hymn_name"
+          label="member_name"
           options-html
           hide-selected
           fill-input
@@ -61,61 +96,24 @@ function onUpdate(updateValue, columnName, id) {
             <q-item v-bind="scope.itemProps">
               <q-item-section>
                 <q-item-label
-                  v-html="highlightFiltered(scope.opt.label, hymn.name)"
+                  v-html="highlightFiltered(scope.opt.label, member.name)"
                 />
-                <q-item-label caption>{{ scope.opt.dsp }}</q-item-label>
+                <q-item-label caption>{{ scope.opt.band }}</q-item-label>
               </q-item-section>
             </q-item>
           </template>
-          <!-- <template v-slot:selected-item="scope">
-          {{ scope.opt.label }}
-        </template> -->
         </q-select>
 
         <q-select
-          v-model="hymn.key"
-          :options="keys"
+          :model-value="member.role"
+          :options="ROLES_OF_BAND"
+          label="member_role"
           input-class="u-text-center"
           class="u-min-w-75px!"
           hide-dropdown-icon
           outlined
           dense
         >
-          <template v-slot:append>
-            <span class="u-text-14px">
-              {{ "key" }}
-            </span>
-          </template>
-        </q-select>
-
-        <q-select
-          v-if="!!hymn.name"
-          v-model="hymn.sheet"
-          :options="dummyHymnSheet"
-          map-options
-          options-html
-          outlined
-          dense
-          label="hymn_sheet_version"
-          class="u-min-w-170px!"
-        >
-          <template v-slot:option="scope">
-            <q-item v-bind="scope.itemProps">
-              <q-item-section>
-                <div class="u-flex u-flex-row u-justify-between">
-                  {{ scope.opt.file_type_dsp }}
-                  <q-icon
-                    name="description"
-                    color="primary"
-                    @click="onClickSheet(scope.opt.file_name)"
-                  />
-                </div>
-              </q-item-section>
-            </q-item>
-          </template>
-          <template v-slot:selected-item="scope">
-            {{ scope.opt.file_type_dsp }}
-          </template>
         </q-select>
 
         <q-btn
@@ -124,8 +122,8 @@ function onUpdate(updateValue, columnName, id) {
           color="primary"
           :ripple="false"
           no-caps
-          :disable="!isHymnListRemoveable"
-          @click="removeMember(hymn.id)"
+          :disable="!isMembersRemoveable"
+          @click="removeMember(member.id)"
         >
           <q-icon name="delete" />
         </q-btn>

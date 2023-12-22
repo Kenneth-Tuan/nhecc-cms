@@ -2,12 +2,10 @@ import { defineStore } from "pinia";
 import { reactive, computed } from "vue";
 
 import { OriginalHymnInfo, OriginalBandMember } from "@/classes/Service";
+import { MAX_HYMNS, MAX_MEMBERS } from "@/constants/serviceConst";
 import { keys } from "@/constants/misc";
 
 export const useServiceStore = defineStore("serviceStore", () => {
-  const MAX_SONGS = 10;
-  const MAX_MEMBERS = 10;
-
   const service = reactive({
     name: "",
     type: "",
@@ -38,7 +36,7 @@ export const useServiceStore = defineStore("serviceStore", () => {
   }
 
   function addHymn(hymnInfo) {
-    if (service.hymnList.length >= MAX_SONGS) return;
+    if (service.hymnList.length >= MAX_HYMNS) return;
     const newSong = new OriginalHymnInfo({
       ...hymnInfo,
       key: keys[Math.floor(Math.random() * 12)],
@@ -88,7 +86,7 @@ export const useServiceStore = defineStore("serviceStore", () => {
     );
   }
 
-  const isHymnListAddable = computed(() => service.hymnList.length < MAX_SONGS);
+  const isHymnListAddable = computed(() => service.hymnList.length < MAX_HYMNS);
   const isHymnListRemoveable = computed(() => service.hymnList.length > 1);
 
   const isMembersAddable = computed(() => service.members.length < MAX_MEMBERS);

@@ -5,6 +5,7 @@ import { storeToRefs } from "pinia";
 import { useServiceStore } from "@/stores/service";
 import { dummyMembers } from "@/mocks/domains/members/data";
 import { ROLES_OF_BAND } from "@/constants/serviceConst";
+import Icon from "./Icon.vue";
 
 const serviceStore = useServiceStore();
 const { updateMemberInfo, removeMember } = serviceStore;
@@ -106,14 +107,49 @@ function highlightFiltered(memberName, inputValue) {
 
         <q-select
           :model-value="member.role"
+          @update:model-value="(val) => onUpdate(val, 'role', member.id)"
           :options="ROLES_OF_BAND"
-          label="member_role"
+          :option-value="
+            (opt) =>
+              Object(opt) === opt && 'roleName' in opt ? opt.roleName : null
+          "
+          :option-label="
+            (opt) =>
+              Object(opt) === opt && 'roleName' in opt ? opt.roleName : null
+          "
           input-class="u-text-center"
           class="u-min-w-75px!"
+          label="member_role"
           hide-dropdown-icon
+          map-options
           outlined
           dense
         >
+          <template v-slot:option="scope">
+            <q-item v-bind="scope.itemProps">
+              <q-item-section
+                class="u-flex u-flex-row u-flex-nowrap u-items-center u-justify-start u-flex-gap-x-8px"
+              >
+                <q-item-label caption>
+                  <img :src="scope.opt.icon" alt="" class="u-w-24px u-h-24px" />
+                </q-item-label>
+                <q-item-label>{{ scope.opt.roleName }}</q-item-label>
+              </q-item-section>
+            </q-item>
+          </template>
+          <template v-slot:selected-item="scope">
+            <p
+              class="u-flex u-flex-row u-flex-nowrap u-items-center u-justify-start u-flex-gap-x-8px"
+            >
+              <img
+                v-if="!!scope.opt.icon"
+                :src="scope.opt.icon"
+                alt=""
+                class="u-w-24px u-h-24px"
+              />
+              {{ scope.opt.roleName }}
+            </p>
+          </template>
         </q-select>
 
         <q-btn

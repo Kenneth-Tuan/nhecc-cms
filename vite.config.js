@@ -9,9 +9,8 @@ import pkg from "./package.json";
 export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
   const { VITE_FWB_BASE_URL } = process.env;
-
   return defineConfig({
-    base: VITE_FWB_BASE_URL,
+    base: "nhecc-cms",
     server: {
       port: 9006,
       cors: true,

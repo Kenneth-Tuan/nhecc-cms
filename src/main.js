@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import { Quasar } from "quasar";
+import { Quasar, Dialog, Notify } from "quasar";
 import "@quasar/extras/material-icons/material-icons.css";
 import "quasar/src/css/index.sass";
 import "@/styles/base.scss";
@@ -22,7 +22,7 @@ if (
 const myApp = createApp(App);
 
 myApp.use(Quasar, {
-  plugins: {},
+  plugins: { Dialog, Notify },
 });
 
 const pinia = createPinia();

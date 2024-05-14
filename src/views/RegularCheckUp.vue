@@ -1,21 +1,18 @@
 <script setup>
 import { reactive } from "vue";
+import { useQuasar } from "quasar";
 
 import DatePicker from "@/components/DatePicker.vue";
 import { submitForm } from "@/apis/googleApi.js";
 
-const map = {
-  field1: "entry.810266239",
-  field2: "entry.897057866",
-  field3: "entry.514404376",
-  field4: "entry.615366442",
-};
+const $q = useQuasar();
 
 const response = reactive({
   operationState: "",
   operationTime: "",
   operator: "",
   others: "",
+  loading: false,
 });
 
 const operationStateList = ["更換濾芯", "濾芯逆襲"];
@@ -23,13 +20,34 @@ const operationStateList = ["更換濾芯", "濾芯逆襲"];
 const operators = ["萬永哥", "廠商", "其他"];
 
 const onFinish = async (values) => {
+  response.loading = true;
   submitForm({
     "entry.810266239": response.operationState,
     "entry.897057866": response.operationTime,
     "entry.514404376": response.operator,
     "entry.615366442": response.others,
   });
+  triggerNotify();
 };
+
+function triggerNotify() {
+  $q.dialog({
+    title: "發送成功<em>!</em>",
+    message: "濾芯定期檢查已完成",
+    html: true,
+    persistent: true,
+  })
+    .onOk(() => {
+      // console.log('OK')
+    })
+    .onCancel(() => {
+      // console.log('Cancel')
+    })
+    .onDismiss(() => {
+      response.loading = false;
+      // console.log('I am triggered on both OK and Cancel')
+    });
+}
 </script>
 
 <template>
@@ -64,7 +82,13 @@ const onFinish = async (values) => {
       clearable
       class="u-w80%"
     />
-    <q-btn color="primary" icon-right="send" label="SUBMIT" @click="onFinish" />
+    <q-btn
+      color="primary"
+      :loading="response.loading"
+      icon-right="send"
+      label="SUBMIT"
+      @click="onFinish"
+    />
   </div>
 </template>
 

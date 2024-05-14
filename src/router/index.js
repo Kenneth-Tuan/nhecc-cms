@@ -13,24 +13,40 @@ const {
 
 const routes = [
   {
-    path: "/",
+    path: "/nhecc-cms",
     redirect: {
-      name: "landingPage",
-      params: { lang: fallbackLocale.value },
+      name: "regularCheckUp",
+      // params: { lang: fallbackLocale.value },
+    },
+  },
+  // {
+  //   path: "/:lang",
+  //   children: [
+  //     {
+  //       path: "nhecc",
+  //       name: "landingPage",
+  //       component: LandingPage,
+  //       meta: {
+  //         layout: DefaultLayout,
+  //       },
+  //     },
+  //   ],
+  // },
+  {
+    path: "/nhecc-cms/regularCheckUp",
+    name: "regularCheckUp",
+    component: () => import("@/views/RegularCheckUp.vue"),
+    meta: {
+      layout: DefaultLayout,
     },
   },
   {
-    path: "/:lang",
-    children: [
-      {
-        path: "nhecc",
-        name: "landingPage",
-        component: LandingPage,
-        meta: {
-          layout: DefaultLayout,
-        },
-      },
-    ],
+    path: "/nhecc-cms/landingPage",
+    name: "landingPage",
+    component: LandingPage,
+    meta: {
+      layout: DefaultLayout,
+    },
   },
 ];
 
@@ -62,14 +78,14 @@ router.beforeEach(async (to, from, next) => {
   //   const token = getToken();
 
   // adjust locale
-  if (!availableLocales.includes(lang)) {
-    console.error(
-      `invalid lang in url, redirect to fallback locale:${fallbackLocale.value}`
-    );
-    next(`${fallbackLocale.value}/nhecc/`);
-  } else {
-    updateLang(lang);
-  }
+  // if (!availableLocales.includes(lang)) {
+  //   console.error(
+  //     `invalid lang in url, redirect to fallback locale:${fallbackLocale.value}`
+  //   );
+  //   next(`${fallbackLocale.value}/nhecc/`);
+  // } else {
+  //   updateLang(lang);
+  // }
 
   //   if (!token) {
   //     if (import.meta.env.DEV) {

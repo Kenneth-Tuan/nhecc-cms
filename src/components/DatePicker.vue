@@ -18,46 +18,44 @@ function onUpdate(newVal) {
 </script>
 
 <template>
-  <div class="" style="max-width: 300px">
-    <q-input
-      :model-value="modelValue"
-      mask="####-##-## ##:##"
-      @update:model-value="(val) => onUpdate(val)"
-      outlined
-      dense
-    >
-      <template v-slot:prepend>
-        <q-icon name="event" class="cursor-pointer">
-          <q-popup-proxy cover transition-show="scale" transition-hide="scale">
-            <q-date
-              :model-value="modelValue"
-              mask="YYYY-MM-DD HH:mm"
-              @update:model-value="(val) => onUpdate(val)"
-            >
-              <div class="row items-center justify-end">
-                <q-btn v-close-popup label="Close" color="primary" flat />
-              </div>
-            </q-date>
-          </q-popup-proxy>
-        </q-icon>
-      </template>
+  <q-input
+    :model-value="modelValue"
+    mask="####-##-## ##:##"
+    @update:model-value="(val) => onUpdate(val)"
+    filled
+    clearable
+  >
+    <template v-slot:prepend>
+      <q-icon name="event" class="cursor-pointer">
+        <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+          <q-date
+            :model-value="modelValue"
+            mask="YYYY-MM-DD HH:mm"
+            @update:model-value="(val) => onUpdate(val)"
+          >
+            <div class="row items-center justify-end">
+              <q-btn v-close-popup label="Close" color="primary" flat />
+            </div>
+          </q-date>
+        </q-popup-proxy>
+      </q-icon>
+    </template>
 
-      <template v-slot:append>
-        <q-icon name="access_time" class="cursor-pointer">
-          <q-popup-proxy cover transition-show="scale" transition-hide="scale">
-            <q-time
-              :model-value="modelValue"
-              mask="YYYY-MM-DD HH:mm"
-              format24h
-              @update:model-value="(val) => onUpdate(val)"
-            >
-              <div class="row items-center justify-end">
-                <q-btn v-close-popup label="Close" color="primary" flat />
-              </div>
-            </q-time>
-          </q-popup-proxy>
-        </q-icon>
-      </template>
-    </q-input>
-  </div>
+    <template v-slot:append>
+      <q-icon name="access_time" class="cursor-pointer">
+        <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+          <q-time
+            :model-value="modelValue"
+            mask="YYYY-MM-DD HH:mm"
+            format24h
+            @update:model-value="(val) => onUpdate(val)"
+          >
+            <div class="row items-center justify-end">
+              <q-btn v-close-popup label="Close" color="primary" flat />
+            </div>
+          </q-time>
+        </q-popup-proxy>
+      </q-icon>
+    </template>
+  </q-input>
 </template>

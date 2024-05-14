@@ -18,16 +18,9 @@ const response = reactive({
   others: "",
 });
 
-const operationStateList = [
-  { label: "更換濾芯", value: "更換濾芯" },
-  { label: "濾芯逆襲", value: "濾芯逆襲" },
-];
+const operationStateList = ["更換濾芯", "濾芯逆襲"];
 
-const operators = [
-  { label: "萬永哥", value: "萬永哥" },
-  { label: "廠商", value: "廠商" },
-  { label: "其他", value: "其他" },
-];
+const operators = ["萬永哥", "廠商", "其他"];
 
 const onFinish = async (values) => {
   submitForm({

@@ -12,7 +12,7 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 function onUpdate(newVal) {
-  console.log(newVal);
+  // console.log(newVal);
   emit("update:modelValue", newVal);
 }
 </script>

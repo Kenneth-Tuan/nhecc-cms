@@ -12,11 +12,19 @@ const {
 } = i18n;
 
 const routes = [
+  // {
+  //   path: "/nhecc-cms",
+  //   redirect: {
+  //     name: "regularCheckUp",
+  //     // params: { lang: fallbackLocale.value },
+  //   },
+  // },
   {
     path: "/nhecc-cms",
-    redirect: {
-      name: "regularCheckUp",
-      // params: { lang: fallbackLocale.value },
+    name: "landingPage",
+    component: LandingPage,
+    meta: {
+      layout: DefaultLayout,
     },
   },
   // {
@@ -36,14 +44,6 @@ const routes = [
     path: "/nhecc-cms/regularCheckUp",
     name: "regularCheckUp",
     component: () => import("@/views/RegularCheckUp.vue"),
-    meta: {
-      layout: DefaultLayout,
-    },
-  },
-  {
-    path: "/nhecc-cms/landingPage",
-    name: "landingPage",
-    component: LandingPage,
     meta: {
       layout: DefaultLayout,
     },

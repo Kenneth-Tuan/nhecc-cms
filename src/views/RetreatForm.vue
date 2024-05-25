@@ -1,5 +1,5 @@
 <script setup>
-import RetreatPoster from "@/assets/img/retreatPoster.png";
+import RetreatPoster from "@/assets/img/RetreatPoster.png";
 import { useRetreatStore } from "@/stores/retreat.js";
 
 const { formState } = useRetreatStore();

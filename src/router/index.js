@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import { storeToRefs } from "pinia";
 
 import LandingPage from "@/views/LandingPage.vue";
+import RetreatForm from "@/views/RetreatForm.vue";
 import { i18n, updateLang } from "@/locales/index";
 // import { useUserStore } from "@/stores/user";
 // import { useMiscStore } from "@/stores/misc";
@@ -22,11 +23,19 @@ const routes = [
   {
     path: "/nhecc-cms",
     name: "landingPage",
-    component: LandingPage,
+    component: RetreatForm,
     meta: {
       layout: DefaultLayout,
     },
   },
+  // {
+  //   path: "/nhecc-cms",
+  //   name: "landingPage",
+  //   component: LandingPage,
+  //   meta: {
+  //     layout: DefaultLayout,
+  //   },
+  // },
   // {
   //   path: "/:lang",
   //   children: [

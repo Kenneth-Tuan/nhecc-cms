@@ -18,3 +18,16 @@ export function submitForm(formData) {
     }
   );
 }
+
+export function submitRetreatForm(formData) {
+  return apiHelper.post(
+    "https://docs.google.com/forms/d/e/1FAIpQLSc9vk2_2YjLVpxPSsgDO1NMwCPCzgvjUbV9v6pspj-6nBhhFg/formResponse",
+    formData,
+    {
+      crossDomain: true, // 解決跨網域CORS的問題
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded", // 設置Content-Type為表單格式
+      },
+    }
+  );
+}

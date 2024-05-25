@@ -23,7 +23,7 @@ export const useRetreatStore = defineStore("retreatStore", () => {
     name: "",
     tel: "",
     id: "",
-    traffic: [],
+    traffic: "",
     passengerNum: 1,
     room: "",
     trafficList: ["我需要被接駁", "我不需要被接駁", "我可以協助接駁"],
@@ -61,18 +61,18 @@ export const useRetreatStore = defineStore("retreatStore", () => {
     },
     traffic: {
       required: helpers.withMessage(() => "必填", required),
-      wrongResult: helpers.withMessage(
-        () => "請選擇正確選項",
-        (val, obj) => {
-          if (
-            (val.includes("我可以協助接駁") ||
-              val.includes("我不需要被接駁")) &&
-            val.includes("我需要被接駁")
-          )
-            return false;
-          return true;
-        }
-      ),
+      // wrongResult: helpers.withMessage(
+      //   () => "請選擇正確選項",
+      //   (val, obj) => {
+      //     if (
+      //       (val.includes("我可以協助接駁") ||
+      //         val.includes("我不需要被接駁")) &&
+      //       val.includes("我需要被接駁")
+      //     )
+      //       return false;
+      //     return true;
+      //   }
+      // ),
     },
     room: {
       required: helpers.withMessage(() => "必填", required),
@@ -102,7 +102,7 @@ export const useRetreatStore = defineStore("retreatStore", () => {
           "entry.648725677": formState.name,
           "entry.108551800": formState.tel,
           "entry.1953137580": formState.id,
-          "entry.263654559": formState.traffic.join(", "),
+          "entry.263654559": formState.traffic,
           "entry.1391140609": formState.passengerNum,
           "entry.1435968211": formState.room,
           "entry.488070935": formState.itemNum,
@@ -117,7 +117,7 @@ export const useRetreatStore = defineStore("retreatStore", () => {
       formState.name = "";
       formState.tel = "";
       formState.id = "";
-      formState.traffic = [];
+      formState.traffic = "";
       formState.passengerNum = 1;
       formState.room = "";
       formState.itemNum = 1;

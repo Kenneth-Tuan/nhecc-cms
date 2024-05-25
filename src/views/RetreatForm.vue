@@ -236,7 +236,7 @@ const { formState, submit } = retreatStore;
     backdrop-filter="blur(4px) saturate(150%)"
     :persistent="true"
   >
-    <q-card class="u-w90%">
+    <q-card class="u-w90% u-h90%">
       <q-toolbar>
         <q-toolbar-title
           ><span class="text-weight-bold">報名表單</span>
@@ -245,7 +245,7 @@ const { formState, submit } = retreatStore;
         <q-btn flat round dense icon="close" v-close-popup />
       </q-toolbar>
 
-      <q-card-section class="u-flex u-flex-col u-flex-gap-y-16px">
+      <q-card-section class="u-flex u-flex-col u-flex-gap-y-20px">
         <q-input
           v-model="formState.name"
           color="secondary"
@@ -271,7 +271,7 @@ const { formState, submit } = retreatStore;
             :error-message="v$.id?.$errors?.[0]?.$message"
           />
 
-          <p class="u-text-12px u-c-gray u-whitespace-pre-line">
+          <p class="u-mt16px u-text-12px u-c-gray u-whitespace-pre-line">
             {{ formState.remarks3 }}
           </p>
         </div>
@@ -280,10 +280,8 @@ const { formState, submit } = retreatStore;
           <q-select
             v-model="formState.traffic"
             :options="formState.trafficList"
-            label="接駁相關（可多選）*"
+            label="接駁相關*"
             color="secondary"
-            multiple
-            use-chips
             :error="v$.traffic?.$error"
             :error-message="v$.traffic?.$errors?.[0]?.$message"
           />
@@ -300,7 +298,7 @@ const { formState, submit } = retreatStore;
             :error-message="v$.passengerNum?.$errors?.[0]?.$message"
           />
 
-          <p class="u-text-12px u-c-gray u-whitespace-pre-line">
+          <p class="u-mt16px u-text-12px u-c-gray u-whitespace-pre-line">
             {{ formState.remarks1 }}
           </p>
         </div>
@@ -325,7 +323,7 @@ const { formState, submit } = retreatStore;
 
           <p
             v-if="formState.room === '我需要床墊'"
-            class="u-text-12px u-c-gray u-whitespace-pre-line"
+            class="u-mt16px u-text-12px u-c-gray u-whitespace-pre-line"
           >
             {{ formState.remarks4 }}<br />
             <a :href="formState.remarks2" target="_blank">蝦皮鏈接</a>

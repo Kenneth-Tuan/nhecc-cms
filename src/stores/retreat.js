@@ -8,11 +8,14 @@ import {
   minLength,
   alphaNum,
   numeric,
-  alpha,
 } from "@vuelidate/validators";
 import { useQuasar } from "quasar";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
 
 import { submitRetreatForm } from "@/apis/googleApi";
+
+dayjs.extend(customParseFormat);
 
 export const useRetreatStore = defineStore("retreatStore", () => {
   const $q = useQuasar();
@@ -23,6 +26,7 @@ export const useRetreatStore = defineStore("retreatStore", () => {
     name: "",
     tel: "",
     id: "",
+    birthday: "",
     traffic: "",
     passengerNum: 1,
     room: "",
@@ -31,8 +35,10 @@ export const useRetreatStore = defineStore("retreatStore", () => {
     itemNum: 1,
     remarks1: `接駁的服務包含週五晚上上山以及週日出游。
     週五晚上需要接駁的弟兄姐妹們請於晚上 1930 大湖公園捷運站 1 號出口集合。`,
-    remarks4: `床墊尺寸：L191*W77*H25 (單位: CM) 
-     床墊價格：298 NT$ / PCS`,
+    remarks4: `
+    床墊統一由同工進行採購及協調，也可自行購買。
+    床墊尺寸：L191*W77*H25 (單位: CM)
+    床墊價格：298 NT$ / PCS`,
     remarks2: "https://tw.shp.ee/5mq4tiG",
     remarks3: "身份證號用於保團體險，請確實填寫，謝謝！",
   });
@@ -58,6 +64,23 @@ export const useRetreatStore = defineStore("retreatStore", () => {
         minLength(10)
       ),
       alphaNum: helpers.withMessage(() => "請輸入英文或數字", alphaNum),
+    },
+    birthday: {
+      required: helpers.withMessage(() => "必填", required),
+      maxLength: helpers.withMessage(
+        () => "請輸入正確的出生日期",
+        maxLength(10)
+      ),
+      minLength: helpers.withMessage(
+        () => "請輸入正確的出生日期",
+        minLength(10)
+      ),
+      isDateValid: helpers.withMessage(
+        () => "請輸入正確的出生日期",
+        (val) => {
+          return dayjs(val, "YYYY-MM-DD", true).isValid();
+        }
+      ),
     },
     traffic: {
       required: helpers.withMessage(() => "必填", required),
@@ -92,19 +115,19 @@ export const useRetreatStore = defineStore("retreatStore", () => {
   async function submit() {
     try {
       const isValid = await v$.value.$validate();
-      console.log("isValid: ", isValid);
       if (isValid) {
-        if (formState.traffic.includes("我需要被接駁"))
-          formState.passengerNum = 0;
+        if (formState.traffic !== "我可以提供床墊") formState.passengerNum = 0;
+        if (formState.room !== "我可以提供床墊") formState.itemNum = 0;
 
         formState.loading = true;
         submitRetreatForm({
           "entry.648725677": formState.name,
-          "entry.108551800": formState.tel,
-          "entry.1953137580": formState.id,
+          "entry.1953137580": formState.tel,
+          "entry.1435968211": formState.id,
+          "entry.612936826": formState.birthday,
           "entry.263654559": formState.traffic,
           "entry.1391140609": formState.passengerNum,
-          "entry.1435968211": formState.room,
+          "entry.108551800": formState.room,
           "entry.488070935": formState.itemNum,
         });
         triggerNotify();
@@ -142,9 +165,17 @@ export const useRetreatStore = defineStore("retreatStore", () => {
       });
   }
 
+  const isExpired = computed(() => {
+    const now = dayjs();
+    const target = dayjs("2024-05-31T23:59:59+08:00");
+    const timeLeft = target.diff(now);
+    return timeLeft < 0;
+  });
+
   return {
     formState,
     v$,
+    isExpired,
 
     submit,
   };

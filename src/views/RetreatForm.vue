@@ -3,9 +3,11 @@ import RetreatPoster from "@/assets/img/RetreatPoster.png";
 import { useRetreatStore } from "@/stores/retreat.js";
 import { storeToRefs } from "pinia";
 
+import CountDownTimer from "@/components/CountDownTimer.vue";
+
 const retreatStore = useRetreatStore();
 const { v$ } = storeToRefs(retreatStore);
-const { formState, submit } = retreatStore;
+const { formState, submit, isExpired } = retreatStore;
 </script>
 
 <template>
@@ -221,14 +223,22 @@ const { formState, submit } = retreatStore;
 
     <q-btn
       rounded
+      :disable="isExpired"
       color="secondary"
       text-color="white"
-      icon-right="touch_app"
+      :icon-right="isExpired ? 'cancel' : 'touch_app'"
       class="u-mxauto u-my-16px u-fixed u-bottom-0 u-left-50% u-translate--50% u-z-1 u-backdrop-blur-10"
       @click="formState.display = true"
     >
-      <span class="u-fw700 u-px8px u-text-20px">我要報名</span>
+      <span v-if="isExpired" class="u-fw700 u-px8px u-text-20px">報名截止</span>
+      <span v-else class="u-fw700 u-px8px u-text-20px">我要報名</span>
     </q-btn>
+    <div
+      class="u-fixed u-bottom--8px u-left-50% u-translate--50% u-z-1 u-backdrop-blur-10 u-flex u-justify-center u-flex-nowrap"
+    >
+      <p class="u-text-nowrap">剩餘報名時間：</p>
+      <CountDownTimer />
+    </div>
   </div>
 
   <q-dialog
@@ -252,6 +262,7 @@ const { formState, submit } = retreatStore;
           label="姓名*"
           :error="v$.name?.$error"
           :error-message="v$.name?.$errors?.[0]?.$message"
+          placeholder="吳聾聲"
         />
         <q-input
           v-model="formState.tel"
@@ -260,21 +271,49 @@ const { formState, submit } = retreatStore;
           mask="####-###-###"
           :error="v$.tel?.$error"
           :error-message="v$.tel?.$errors?.[0]?.$message"
+          placeholder="0987-654-321"
         />
         <div class="">
           <q-input
             v-model="formState.id"
             color="secondary"
-            label="身份證字號*"
+            label="身分證字號*"
             mask="A#########"
             :error="v$.id?.$error"
             :error-message="v$.id?.$errors?.[0]?.$message"
+            placeholder="A123456789"
           />
 
           <p class="u-mt16px u-text-12px u-c-gray u-whitespace-pre-line">
             {{ formState.remarks3 }}
           </p>
         </div>
+
+        <q-input
+          v-model="formState.birthday"
+          mask="####/##/##"
+          :error="v$.birthday?.$error"
+          :error-message="v$.birthday?.$errors?.[0]?.$message"
+          label="出生年月日*"
+          color="secondary"
+          placeholder="YYYY/MM/DD"
+        >
+          <template v-slot:append>
+            <q-icon name="event" class="cursor-pointer">
+              <q-popup-proxy
+                cover
+                transition-show="scale"
+                transition-hide="scale"
+              >
+                <q-date v-model="formState.birthday">
+                  <div class="row items-center justify-end">
+                    <q-btn v-close-popup label="Close" color="secondary" flat />
+                  </div>
+                </q-date>
+              </q-popup-proxy>
+            </q-icon>
+          </template>
+        </q-input>
 
         <div class="u-flex u-flex-col">
           <q-select
@@ -323,7 +362,7 @@ const { formState, submit } = retreatStore;
 
           <p
             v-if="formState.room === '我需要床墊'"
-            class="u-mt16px u-text-12px u-c-gray u-whitespace-pre-line"
+            class="u-text-12px u-c-gray u-whitespace-pre-line"
           >
             {{ formState.remarks4 }}<br />
             <a :href="formState.remarks2" target="_blank">蝦皮鏈接</a>

@@ -234,7 +234,7 @@ const { formState, submit, isExpired } = retreatStore;
       <span v-else class="u-fw700 u-px8px u-text-20px">我要報名</span>
     </q-btn>
     <div
-      class="u-fixed u-bottom--8px u-left-50% u-translate--50% u-z-1 u-backdrop-blur-10 u-flex u-justify-center u-flex-nowrap"
+      class="u-fixed u-bottom--8px u-left-50% u-translate--50% u-z-1 u-backdrop-blur-10 u-w100% u-flex u-justify-center u-flex-nowrap"
     >
       <p class="u-text-nowrap">剩餘報名時間：</p>
       <CountDownTimer />

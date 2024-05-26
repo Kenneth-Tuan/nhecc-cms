@@ -305,7 +305,7 @@ const { formState, submit, isExpired } = retreatStore;
                 transition-show="scale"
                 transition-hide="scale"
               >
-                <q-date v-model="formState.birthday">
+                <q-date v-model="formState.birthday" color="secondary">
                   <div class="row items-center justify-end">
                     <q-btn v-close-popup label="Close" color="secondary" flat />
                   </div>
@@ -324,18 +324,20 @@ const { formState, submit, isExpired } = retreatStore;
             :error="v$.traffic?.$error"
             :error-message="v$.traffic?.$errors?.[0]?.$message"
           />
-          <q-select
-            v-if="
-              formState.traffic.includes('我可以協助接駁') &&
-              !formState.traffic.includes('我需要被接駁')
-            "
-            v-model="formState.passengerNum"
-            :options="[1, 2, 3, 4]"
-            label="乘客人數"
-            color="secondary"
-            :error="v$.passengerNum?.$error"
-            :error-message="v$.passengerNum?.$errors?.[0]?.$message"
-          />
+          <transition name="fade" mode="out-in">
+            <q-select
+              v-if="
+                formState.traffic.includes('我可以協助接駁') &&
+                !formState.traffic.includes('我需要被接駁')
+              "
+              v-model="formState.passengerNum"
+              :options="[1, 2, 3, 4]"
+              label="乘客人數"
+              color="secondary"
+              :error="v$.passengerNum?.$error"
+              :error-message="v$.passengerNum?.$errors?.[0]?.$message"
+            />
+          </transition>
 
           <p class="u-mt16px u-text-12px u-c-gray u-whitespace-pre-line">
             {{ formState.remarks1 }}
@@ -350,23 +352,40 @@ const { formState, submit, isExpired } = retreatStore;
             :error="v$.room?.$error"
             :error-message="v$.room?.$errors?.[0]?.$message"
           />
-          <q-select
-            v-if="formState.room === '我可以提供床墊'"
-            v-model="formState.itemNum"
-            :options="[1, 2, 3, 4]"
-            label="床墊數量"
+
+          <p class="u-mt16px u-text-12px u-c-gray u-whitespace-pre-line">
+            {{ formState.remarks5 }}<br />
+          </p>
+          <transition name="fade" mode="out-in">
+            <p
+              v-if="formState.room === '我需要床墊'"
+              class="u-text-12px u-c-gray u-whitespace-pre-line"
+            >
+              {{ formState.remarks4 }}<br />
+              <a :href="formState.remarks2" target="_blank">蝦皮鏈接</a>
+            </p>
+          </transition>
+        </div>
+
+        <div class="">
+          <q-checkbox
+            v-model="formState.badAble"
+            label="我可以提供床墊"
             color="secondary"
-            :error="v$.itemNum?.$error"
-            :error-message="v$.itemNum?.$errors?.[0]?.$message"
+            dense
           />
 
-          <p
-            v-if="formState.room === '我需要床墊'"
-            class="u-text-12px u-c-gray u-whitespace-pre-line"
-          >
-            {{ formState.remarks4 }}<br />
-            <a :href="formState.remarks2" target="_blank">蝦皮鏈接</a>
-          </p>
+          <transition name="fade" mode="out-in">
+            <q-select
+              v-if="formState.badAble"
+              v-model="formState.itemNum"
+              :options="[1, 2, 3, 4]"
+              label="床墊數量"
+              color="secondary"
+              :error="v$.itemNum?.$error"
+              :error-message="v$.itemNum?.$errors?.[0]?.$message"
+            />
+          </transition>
         </div>
       </q-card-section>
 

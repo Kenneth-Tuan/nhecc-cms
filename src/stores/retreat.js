@@ -40,7 +40,7 @@ export const useRetreatStore = defineStore("retreatStore", () => {
     床墊尺寸：L191*W77*H25 (單位: CM)
     床墊價格：298 NT$ / PCS`,
     remarks2: "https://tw.shp.ee/5mq4tiG",
-    remarks3: "身份證號用於保團體險，請確實填寫，謝謝！",
+    remarks3: "身分證號用於保團體險，請確實填寫，謝謝！",
   });
 
   const rules = computed(() => ({
@@ -56,11 +56,11 @@ export const useRetreatStore = defineStore("retreatStore", () => {
     id: {
       required: helpers.withMessage(() => "必填", required),
       maxLength: helpers.withMessage(
-        () => "請輸入10位身份證字號",
+        () => "請輸入10位身分證字號",
         maxLength(10)
       ),
       minLength: helpers.withMessage(
-        () => "請輸入10位身份證字號",
+        () => "請輸入10位身分證字號",
         minLength(10)
       ),
       alphaNum: helpers.withMessage(() => "請輸入英文或數字", alphaNum),

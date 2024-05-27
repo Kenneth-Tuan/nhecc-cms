@@ -370,7 +370,7 @@ const { formState, submit, isExpired } = retreatStore;
         <div class="">
           <q-checkbox
             v-model="formState.badAble"
-            label="我可以提供床墊"
+            label="我可以提供床墊給其他弟兄姊妹們使用"
             color="secondary"
             dense
           />

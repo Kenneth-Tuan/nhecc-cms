@@ -34,7 +34,7 @@ export const useRetreatStore = defineStore("retreatStore", () => {
     roomList: ["我需要睡袋", "我需要床墊", "我都需要", "我都不需要"],
     badAble: false,
     itemNum: 1,
-    remarks1: `接駁的服務包含週五晚上上山以及週日出游。
+    remarks1: `接駁的服務包含週五晚上上山以及週日出遊。
     週五晚上需要接駁的弟兄姐妹們請於晚上 1930 大湖公園捷運站 1 號出口集合。`,
     remarks4: `床墊統一由同工進行採購及協調，也可自行購買。
     床墊尺寸：L191*W77*H25 (單位: CM)

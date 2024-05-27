@@ -42,7 +42,10 @@ const { formState, submit, isExpired } = retreatStore;
         side="left"
         icon="restaurant"
       >
-        <!-- <div>晚餐</div> -->
+        <div class="u-text-14px u-c-gray">
+          我們有提供晚餐給大家喔～所以請各位直接帶著您的行李到莊園。<br />
+          有需要接駁的弟兄姊妹們請於 1930 在捷運大湖公園站 1 號出口處集合。
+        </div>
       </q-timeline-entry>
 
       <q-timeline-entry
@@ -205,6 +208,7 @@ const { formState, submit, isExpired } = retreatStore;
         side="right"
         icon="beach_access"
       >
+        <div class="u-text-14px u-c-gray">記得帶上可換洗的衣物。</div>
       </q-timeline-entry>
 
       <q-timeline-entry title="回程" subtitle="1600 ~ 1700" side="right">

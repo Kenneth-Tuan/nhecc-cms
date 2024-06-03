@@ -7,7 +7,7 @@ import CountDownTimer from "@/components/CountDownTimer.vue";
 
 const retreatStore = useRetreatStore();
 const { v$ } = storeToRefs(retreatStore);
-const { formState, submit, isExpired } = retreatStore;
+const { formState, submit, isExpired, targetTime } = retreatStore;
 </script>
 
 <template>
@@ -241,14 +241,14 @@ const { formState, submit, isExpired } = retreatStore;
       class="u-fixed u-bottom--8px u-left-50% u-translate--50% u-z-1 u-backdrop-blur-10 u-w100% u-flex u-justify-center u-flex-nowrap"
     >
       <p class="u-text-nowrap">剩餘報名時間：</p>
-      <CountDownTimer />
+      <CountDownTimer :targetTime="targetTime" />
     </div>
   </div>
 
   <q-dialog
     v-model="formState.display"
     backdrop-filter="blur(4px) saturate(150%)"
-    :persistent="true"
+    :persistent="false"
   >
     <q-card class="u-w90% u-h90%">
       <q-toolbar>

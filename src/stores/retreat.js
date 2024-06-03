@@ -169,9 +169,11 @@ export const useRetreatStore = defineStore("retreatStore", () => {
       });
   }
 
+  const targetTime = "2024-06-07T23:59:59+08:00";
+
   const isExpired = computed(() => {
     const now = dayjs();
-    const target = dayjs("2024-05-31T23:59:59+08:00");
+    const target = dayjs(targetTime);
     const timeLeft = target.diff(now);
     return timeLeft < 0;
   });
@@ -180,6 +182,7 @@ export const useRetreatStore = defineStore("retreatStore", () => {
     formState,
     v$,
     isExpired,
+    targetTime,
 
     submit,
   };
